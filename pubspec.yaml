@@ -1,8 +1,8 @@
 name: getxfire
 description: A Flutter project that implemented getx package and firebase services.
 version: 0.0.1
-author:
-homepage:
+author: Faisal Ramdan<faisalramdan.id@gmail.com>
+homepage: https://github.com/faisalramdan17/getxfire
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
