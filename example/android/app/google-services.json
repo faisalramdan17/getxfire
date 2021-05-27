@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "197553914683",
+    "project_id": "getxfire",
+    "storage_bucket": "getxfire.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197553914683:android:979ff4bfd1cad729fbad1e",
+        "android_client_info": {
+          "package_name": "id.codingyourlife.getxfire_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197553914683-rb5r4lpq1cg7o99knfv1knc3bassk4eb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.codingyourlife.getxfire_example",
+            "certificate_hash": "48d30e24e3c277a68a6a57cf7c7ccc426a3b4b87"
+          }
+        },
+        {
+          "client_id": "197553914683-6t2crkosv7s86ovsfugv626v0932otms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3LUAl6JGvEQ2yDS35qcoNM0PmXu1zhDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197553914683-6t2crkosv7s86ovsfugv626v0932otms.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "197553914683-b9dcl6t48njn540hcc0f6904i4t4arfn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "id.codingyourlife.getxfireexample"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

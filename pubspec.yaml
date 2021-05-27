@@ -1,6 +1,6 @@
 name: getxfire
 description: A Flutter project that implemented getx package and firebase services.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/faisalramdan17/getxfire/wiki
 repository: https://github.com/faisalramdan17/getxfire
 
@@ -13,6 +13,33 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
+
+  # Firebase Packages
+  firebase_auth: ^1.1.4
+  cloud_firestore: ^2.1.0
+  firebase_storage: ^8.0.6
+  # firebase_messaging: ^9.1.4 # Coming Soon
+  firebase_dynamic_links: ^2.0.3
+  firebase_analytics: ^8.0.4
+
+  # SignIn Packages
+  google_sign_in: ^5.0.4
+  # flutter_facebook_auth: ^3.4.0 # Coming Soon
+  sign_in_with_apple: ^3.0.0 # Coming Soon
+
+  # Utils Packages
+  dio: ^4.0.0
+  image_picker: ^0.7.5+3
+  permission_handler: ^8.0.0+2
+  flutter_image_compress: ^1.0.0
+  path: ^1.8.0
+  path_provider: ^2.0.2
+  location: ^4.1.1
+  geoflutterfire: ^3.0.0-nullsafety.4
+  rxdart: ^0.27.0 # Needs to be updated when geoflutterfire changes.
+  crypto: ^3.0.1 # md5 on chat, facebook  login
+  algolia: ^1.0.1
+  merge_map: ^1.0.2
 
 dev_dependencies:
   flutter_test:
