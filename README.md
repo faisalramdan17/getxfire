@@ -3,7 +3,6 @@
 [![pub package](https://img.shields.io/pub/v/getxfire?color=blue&label=getxfire&logo=getxfire&logoColor=blue)](https://pub.dev/packages/getxfire)
 [![likes](https://badges.bar/getxfire/likes)](https://pub.dev/packages/getxfire/score)
 ![building](https://github.com/jonataslaw/get/workflows/build/badge.svg)
-<!-- [![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://pub.dev/packages/effective_dart) -->
 [![Telegram](https://img.shields.io/badge/chat-on%20Telegram-blue.svg)](https://t.me/faisalramdan17)
 <a href="https://github.com/Solido/awesome-flutter">
 <img alt="Awesome Flutter" src="https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square" />
