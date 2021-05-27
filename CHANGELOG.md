@@ -1,4 +1,4 @@
-## 0.0.2 - Registration & Login (27 May 2021)
+## 0.0.2 - Registration, Login, Etc. (27 May 2021)
 
 - Registration and more works on User CRUD.
 - Google Sign in

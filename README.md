@@ -1,9 +1,9 @@
 # Get X Firebase
 
-[![pub package](https://img.shields.io/pub/v/getxfire?color=blue&label=getxfire&logo=getxfire&logoColor=blue&style=for-the-badge)](https://pub.dev/packages/getxfire)
-[![likes](https://badges.bar/get/likes)](https://pub.dev/packages/getxfire/score)
-![building](https://github.com/faisalramdan17/getxfire/workflows/build/badge.svg)
-[![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://pub.dev/packages/effective_dart)
+[![pub package](https://img.shields.io/pub/v/getxfire?color=blue&label=getxfire&logo=getxfire&logoColor=blue)](https://pub.dev/packages/getxfire)
+[![likes](https://badges.bar/getxfire/likes)](https://pub.dev/packages/getxfire/score)
+![building](https://github.com/jonataslaw/get/workflows/build/badge.svg)
+<!-- [![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://pub.dev/packages/effective_dart) -->
 [![Telegram](https://img.shields.io/badge/chat-on%20Telegram-blue.svg)](https://t.me/faisalramdan17)
 <a href="https://github.com/Solido/awesome-flutter">
 <img alt="Awesome Flutter" src="https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square" />
@@ -12,16 +12,129 @@
 
 A Flutter project that implemented getx package and firebase services.
 
-## Getting Started
+It's free, open source, complete, rapid development package for creating Social apps, Chat apps, Community(Forum) apps, Shopping mall apps, and much more based on Firebase.
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+- Complete features.\
+  This package has complete features (see Features below) that most of apps require.
+- `Simple, easy and the right way`.\
+  We want it to be deadly simple yet, right way for ourselves and for the developers in the world.
+  We know when it gets complicated, our lives would get even more complicated.
+- Real time.\
+  We design it to be real time when it is applied to your app. All the events like post and comment creation, voting(like, dislike), deletion would appears on all the user's phone immediately after the event.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+# Features
+
+- User
+
+  - User registration, login, profile update with email/password
+  - Social logins
+    - Google
+    - Apple (Coming Soon)
+    - Facebook (Coming Soon)
+  - User profile photo update
+  - Phone number authentication
+
+- Forum (Coming Soon)
+
+  - Complete forum functioanlities.
+    - Forum category add/update/delete in admin page.
+    - Post and comment create/update/read/delete, likes/dislikes, file upload/delete. And any other extra functioanalties to compete forum feature.
+  - Block users who didn't verify their phone nubmers to create posts & comments.
+  - Forum search with Algolia.
+  - Infinite scroll.
+  - Real time.
+    - If a user create a comment, it will appear on other user's phone. And this goes same to all edit/delete, likes/dislikes.
+  - A category of forum could be re-designed for any purpose like online shopping mall, blog, etc.
+
+- Search (Coming Soon)
+
+  - posts and comments search.
+
+- Push notifications (Coming Soon)
+
+  - Admin can send push notifications to all users.
+  - Admin can send push notifications to users of a forum.
+  - User can enable/disable to get notification when other users creates comments under his posts/comments.
+  - User can subscribe/unsubscribe for new posts or comments under a forum.
+
+- Chat (Coming Soon)
+
+  - A complete chat functionality which includes
+    - Group chat
+    - Inviting users
+    - Blocking users
+    - Kickout users
+    - Changing settings of chat room
+  - Expect more to come.
+
+- Location (Coming Soon)
+
+  - App can update login user's GEO location. There are many possiblities by saving GEO location.
+  - App can search other users(by distance, gender) near the login user GEO point.
+
+- Settings in real time.
+
+  - Admin can update app settings via Admin page and the change will apply to app immediately.
+
+- Internalization (Localization) in real time.
+
+  - Texts in menu, text screens could be translated/update at any via Admin page and it appears in the app immediately.
+
+- Security
+
+  - Tight Firestore security rules are applied.
+
+
+- Fully Customizable
+  - GetxFire package does not involve in any of part application's login or UI. It is completely separated from the app. Thus, it's highly customizable.
+
+# References
+
+- [GetxFire Package](https://github.com/faisalramdan17/getxfire) - This Package.
+- [GetxFire Sample App](https://github.com/faisalramdan17/getxfire/tree/main/example) - Example Flutter App.
+- [GetxFire Documentation](https://github.com/faisalramdan17/getxfire/wiki) - Wiki Documentation.
+
+# Components
+
+- Firebase\
+  Firebase is a leading cloud system powered by Google. It has lots of goods to build web and app.
+
+  - We first built it with Firebase and LEMP(Linux + Nginx + MariaDB + PHP). It was fine but was a pressure to maintain two different systems. So, We decided to remove LEMP and built it again with Firebase only.
+
+  - You may use Firebase as free plan for a test.
+
+- Flutter\
+  Flutter as its app development toolkit.
+
+
+- Algolia\
+  Firebase does not support full text search which means users cannot search posts and comments.
+  Algolia does it.
+
+- And other open source Flutter & Dart packages.
+
+# Requirements
+
+- Basic understanding of Flutter and Dart.
+- Basic understanding of Firebase.
+- Editor: VSCode, Xcode(for Mac OS).\
+  Our primary editor is VSCode and we use Xcode for Flutter settings. We found it more easy to do the settings with Xcode for iOS development.
+
+# Installation & Usage
+
+- To use this plugin, please visit the [GetxFire Wiki Documentation](https://github.com/faisalramdan17/getxfire/wiki)
+- If you are not familiar with Firebase and Flutter, you may have difficulties to install it.
+
+  - GetxFire is not a smple package that you just add it into pubspec.yaml and ready to go.
+  - Many of the settings are coming from the packages that getxfire is using. And for release, it may need extra settgins.
+  - Most of developers are having troubles with settings. You are not the only one. Ask us on [Git issues](https://github.com/faisalramdan17/getxfire/issues).
+
+- We will cover all the settings and try to put it as demonstrative as it can be.
+
+  - We will begin with Firebase settings and contiue gradual settings with Flutter.
+
+- And please let us know if there is any mistake on the documentation.
 
 # State Management
 
@@ -38,8 +151,8 @@ GetX is not bloated. It has a multitude of features that allow you to start prog
 GetX has a huge ecosystem, a large community, a large number of collaborators, and will be maintained as long as the Flutter exists. GetX too is capable of running with the same code on Android, iOS, Web, Mac, Linux, Windows, and on your server.
 
 # Social Media
-- Buy Me a Coffee: https://www.buymeacoffee.com/faisalramdan17
-- Contact us on Telegram → https://t.me/faisalramdan17
+- Buy Me a Coffee : https://www.buymeacoffee.com/faisalramdan17
+- Contact us on Telegram : https://t.me/faisalramdan17
 - Website: https://codingyourlife.id
 - GitHub: https://github.com/faisalramdan17
 - Facebook : https://www.facebook.com/codingyourlife.id
