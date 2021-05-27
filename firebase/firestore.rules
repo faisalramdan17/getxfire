@@ -1,0 +1,364 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // By default, all permissions are locked.
+    match /{document=**} {
+      allow read: if false;
+      allow write: if false;
+    }
+    // Test purpose
+    // `readonlytest` is only for security rule unit testing.
+    match /readonlytest/{docId} {
+      allow read: if true;
+      allow write: if (request.auth.uid == docId);
+    }
+    // Test purpose
+    // `publictest` is only for security rule unit testing.
+    match /publictest/{docId} {
+      allow read: if (resource.data.visibility == "public" || ( resource.data.uid == request.auth.uid ));
+      allow write: if false;
+    }
+
+
+    // Purchase history
+    // Verification and delivery of purchase should be done in backend.
+    match /purchase/{document=**} {
+      allow read: if resource.data.uid == request.auth.uid || admin();
+      allow create: if request.resource.data.uid == request.auth.uid;
+    }
+    
+
+    /// Chat
+    match /chat {
+      match /my-room-list/{uid}/{roomId} {
+        // User can read his own chat room list.
+        allow read: if request.auth.uid == uid;
+        // Only chat room users can update the room info(last message) of (room list of) users who are in the same room.
+        allow create, update: if request.auth.uid == uid
+        || request.auth.uid in get(/databases/$(database)/documents/chat/global/room-list/$(roomId)).data.users;
+        allow delete: if request.auth.uid == uid;
+      }
+      
+
+
+      match /global/room-list/{roomId} {
+        // Only room users can read the room information.
+        allow read: if request.auth.uid in resource.data.users;
+        // Anyone can create room.
+        allow create: if true;
+        // Room users can add another users and none of them must not be in `blockedUsers` 
+        // User cannot remove other user but himself. and cannot update other fields.
+        // Moderators can remove a user and can update any fields.
+        allow update: if
+        (
+          (
+          request.auth.uid in resource.data.users
+          && onlyUpdating(['users'])
+          && request.resource.data.users.hasAll(resource.data.users.removeAll([request.auth.uid])) // remove my self or add users.
+          )
+          ||
+          // Moderators can edit all the fields. This includes
+          // - removing users by updating users: []
+          // - blocking users by updating blockedUsers: []
+          // - adding another user to moderator by updating moderators: []
+          // - and all the work.
+          (
+          'moderators' in resource.data && request.auth.uid in resource.data.moderators
+          )
+        )
+        &&
+        (
+          !('blockedUsers' in resource.data)
+          ||
+          resource.data.blockedUsers == null
+          ||
+          !(request.resource.data.users.hasAny(resource.data.blockedUsers))
+        )
+        // ! ('blockedUsers' in resource.data && request.resource.data.users.hasAny(resource.data.blockedUsers)) // stop adding users who are in block list.
+        ;
+      }
+      
+      match /messages/{roomId}/{message} {
+        // Room users can read room messages.
+        allow read: if request.auth.uid in get(/databases/$(database)/documents/chat/global/room-list/$(roomId)).data.users;
+        // Room users can write his own message.
+        allow write: if request.auth.uid in get(/databases/$(database)/documents/chat/global/room-list/$(roomId)).data.users && request.resource.data.senderUid == request.auth.uid;
+      }
+    }
+
+
+    // Users
+    // Security Rules for Users Colection
+    match /users/{uid} {
+      // If user logged in, he can create his own document.
+      allow create: if login() && request.auth.uid == uid;
+
+      // Read if it's login user's document.
+      // Admin can read, too.
+      allow read: if request.auth.uid == uid || admin();
+
+      // Update login user's document.
+      // Admin cannot update.
+      // No body can update `isAdmin` which tells who's admin.
+      allow update: if request.auth.uid == uid && notUpdating('isAdmin');
+
+      // Nobody can delete.
+      allow delete: if false;
+    }
+
+
+    // User public information documents
+    //
+    match /meta/user/public/{uid} {
+    	allow read: if true;
+      allow write: if request.auth.uid == uid;
+    }
+
+    // User tokens document.
+    // It's open to public.
+    match /meta/user/token/{uid} {
+    	allow read: if true;
+      allow write: if request.auth.uid == uid;
+    }
+    
+
+
+    // Category rules
+    //
+    // Read: by anyone.
+    // Create, Update, Delete: admin only.
+    // Category document id must be same of the `id` field.
+    // Admin cannot update `id`.
+    match /categories/{category} {
+      allow read: if true;
+      allow create: if admin() && category == req('id') && hasAll(['id', 'title', 'description']);
+      allow delete: if admin();
+      allow update: if admin() && notUpdating('id');
+    }
+
+
+
+    // Posts
+    match /posts/{postId} {
+      // Anybody can read and list.
+      // TODO: [group](https://github.com/thruthesky/fireflutter/issues/26)
+      allow read: if true;
+
+
+      // Create a post
+      //
+      //
+      // input data
+      // uid: my uid. the user must login.
+      // category: category id. And the category must exist.
+      // createdAt: This is FieldValue.serverTimestamp(). required.
+      // updatedAt: This is FieldValue.serverTimestamp(). required.
+      // All other fields are optional. You can input title, content, and more.
+      allow create: if login()
+        && toBeMyDocument()
+        && categoryExist()
+        && hasAll(['uid', 'category', 'createdAt', 'updatedAt']);
+
+      // Update a post
+      //
+      // Condition 1. User can update his post not other's post.
+      // Input params of [Condition 1]
+      // category: **required**. The category must be exit and may be changed.
+      // uid: **optinonal** The user uid. This value must be same with the value that is already saved in the document. Meaning it cannot be changed.
+      // updatedAt: **required** This is FieldValue.serverTimestamp(), and must have bigger value from the value in the document.
+      // All other fields are optinal.
+
+      allow update: if
+        admin()
+        ||
+        (
+          myDocument()
+          && notUpdating('uid')
+          && notUpdating('likes')
+          && req('updatedAt') > res('updatedAt')
+          && categoryExist()
+        )
+        ||
+        (
+          // only updating 'likes'
+          debug(onlyUpdating(['likes']))
+          &&
+          (
+            (
+              (
+              // if 'likes' not exist, then, succeeds.
+              !('likes' in resource.data)
+              ||
+              // if 'likes' exists but empty, then succeeds,
+              resource.data.likes.size() == 0
+              )
+              &&
+              [request.auth.uid].toSet() == request.resource.data.likes.diff({}).affectedKeys()
+            )
+            ||
+            // if updates only my uid. add my uid or remove my uid.
+            [request.auth.uid].toSet() == request.resource.data.likes.diff(resource.data.likes).affectedKeys()
+          )
+        )
+      ;
+
+      // Delete
+      //
+      // User can delete his post.
+      // Admin can delete, too.
+      allow delete: if myDocument() || admin();
+
+
+
+      // Comment.
+      // Comments are saved under post document.
+      match /comments/{commentId} {
+        allow read: if true;
+
+        // Comment create rules
+        //
+        // Required: input params.
+        // uid
+        // depth
+        // order
+        // createdAt
+        // updatedAt
+        // All others are options. Even comment content is optional.
+        allow create: if login() && toBeMyDocument() // Must be my comment
+          && exists(/databases/$(database)/documents/posts/$(postId)) // post must exist
+          && request.resource.data.order is string // order must be string
+          && request.resource.data.order.size() == 50 // order must be 50 length
+          && request.resource.data.depth is number // depth must be number
+          && request.resource.data.depth >= 0 && request.resource.data.depth < 12 // depth from 0 to 11.
+          && hasAll(['uid', 'createdAt', 'updatedAt', 'order', 'depth'])
+          ;
+
+        // Comment edit rules
+        // - My comment,
+        // - Must not update `uid`, `order`, `likes`
+        // - Vote can be done by any one
+        allow update: if
+          (
+            login()
+            && toBeMyDocument() 
+            && notUpdating('uid')
+            && notUpdating('order')
+            && notUpdating('likes')
+          )
+          
+        ||
+        (
+          // only updating 'likes'
+          debug(onlyUpdating(['likes']))
+          &&
+          (
+            (
+              (
+              // if 'likes' not exist, then, succeeds.
+              !('likes' in resource.data)
+              ||
+              // if 'likes' exists but empty, then succeeds,
+              resource.data.likes.size() == 0
+              )
+              &&
+              [request.auth.uid].toSet() == request.resource.data.likes.diff({}).affectedKeys()
+            )
+            ||
+            // if updates only my uid. add my uid or remove my uid.
+            [request.auth.uid].toSet() == request.resource.data.likes.diff(resource.data.likes).affectedKeys()
+          )
+        )
+          ;
+
+        // User can delete his own comemnt
+        allow delete: if login() && myDocument();
+
+
+      } // comments
+    }
+
+
+    
+
+    // Settings can be read by anyone but only admin can update.
+    match /settings/{document=**} {
+      allow read: if true;
+      allow write: if admin();
+    }
+
+    match /translations/{document=**}  {
+      allow read: if true;
+      allow write: if admin();
+    }
+
+
+
+
+    // Check if user logged in.
+    //
+    // Anonymous is considered as not logged in.
+    function login() {
+      return request.auth.uid != null
+        && ( request.auth.token.firebase.sign_in_provider != 'anonymous' );
+    }
+
+    // Returns the data of the `field` is in the resource.request.data
+    function req(field) {
+      return request.resource.data[field];
+    }
+    // Returns the data of the `field` is in the resource.data
+    function res(field) {
+      return resource.data[field];
+    }
+
+    // Check if the field is not updated.
+    function notUpdating(field) {
+      return !(field in request.resource.data) || resource.data[field] == request.resource.data[field];
+    }
+
+    // Check if the input document property has a field
+    // function requestHas(field) {
+    //   return field in request.resource.data;
+    // }
+
+
+    // Check if the exists document is the login user's document.
+    function myDocument() {
+      return resource.data.uid == request.auth.uid;
+    }
+
+    // Check if the document will be my document after writing.
+    function toBeMyDocument() {
+      return request.resource.data.uid == request.auth.uid;
+    }
+
+    // See if the login user is admin.
+    function admin() {
+      return login() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+
+    // See if the category exists.
+    // It check the incoming `category` from client.
+    function categoryExist() {
+      return exists(/databases/$(database)/documents/categories/$(request.resource.data.category));
+    }
+
+    // Check if only the specified fields are updated.
+    //
+    // Example) onlyUpdating(['like', 'dislike']);
+    function onlyUpdating(fields) {
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly(fields);
+    }
+
+
+    // Check if all the fields are exist in request.
+    //
+    // If request does not contain any of the fields, it fails.
+    function hasAll(fields) {
+      return (request.resource.data.keys().hasAll(fields));
+    }
+  }
+
+
+}

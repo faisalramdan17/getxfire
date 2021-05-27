@@ -1,0 +1,28 @@
+{
+  "name": "rules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@firebase/rules-unit-testing": "^1.0.8"
+  },
+  "devDependencies": {
+    "firebase-admin": "^9.2.0",
+    "mocha": "^8.2.0"
+  },
+  "scripts": {
+    "test": "mocha tests/**/*.js",
+    "test:basic": "mocha --watch tests/basic.js",
+    "test:user": "mocha --watch tests/user.js",
+    "test:admin": "mocha --watch tests/admin.js",
+    "test:category": "mocha --watch tests/category.js",
+    "test:comment": "mocha --watch tests/comment.js",
+    "test:post": "mocha --watch tests/post.js",
+    "test:vote": "mocha --watch tests/vote.js",
+    "test:user.token": "mocha --watch tests/user.token.js",
+    "test:chat": "mocha --watch tests/chat.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

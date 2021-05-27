@@ -4,12 +4,9 @@
 [![likes](https://badges.bar/getxfire/likes)](https://pub.dev/packages/getxfire/score)
 ![building](https://github.com/jonataslaw/get/workflows/build/badge.svg)
 [![Telegram](https://img.shields.io/badge/chat-on%20Telegram-blue.svg)](https://t.me/faisalramdan17)
-<a href="https://github.com/Solido/awesome-flutter">
-<img alt="Awesome Flutter" src="https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square" />
-</a>
 <a href="https://www.buymeacoffee.com/faisalramdan17" target="_blank"><img src="https://i.imgur.com/aV6DDA7.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" > </a>
 
-A Flutter project that implemented getx package and firebase services.
+A Flutter Package that implemented firebase services with getx package example.
 
 It's free, open source, complete, rapid development package for creating Social apps, Chat apps, Community(Forum) apps, Shopping mall apps, and much more based on Firebase.
 
@@ -150,6 +147,7 @@ GetX is not bloated. It has a multitude of features that allow you to start prog
 GetX has a huge ecosystem, a large community, a large number of collaborators, and will be maintained as long as the Flutter exists. GetX too is capable of running with the same code on Android, iOS, Web, Mac, Linux, Windows, and on your server.
 
 # Social Media
+- <a href="https://www.buymeacoffee.com/faisalramdan17" target="_blank"><img src="https://i.imgur.com/aV6DDA7.png" alt="Buy Me A Coffee" style="height: 100px !important;width: 274px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" > </a>
 - Buy Me a Coffee : https://www.buymeacoffee.com/faisalramdan17
 - Contact us on Telegram : https://t.me/faisalramdan17
 - Website: https://codingyourlife.id
