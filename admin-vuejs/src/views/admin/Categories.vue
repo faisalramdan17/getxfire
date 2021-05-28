@@ -60,7 +60,7 @@ export default class Categories extends Vue {
   newCategory = {
     id: "",
     title: "",
-    description: "",
+    description: ""
   };
 
   categories: any[] = [];
@@ -71,7 +71,7 @@ export default class Categories extends Vue {
     this.fetchingCategories = true;
 
     const snapshot = await this.col.get();
-    snapshot.docs.forEach((doc) => {
+    snapshot.docs.forEach(doc => {
       this.categories.push(doc.data());
     });
 
@@ -86,7 +86,7 @@ export default class Categories extends Vue {
     const docRef = this.col.doc(this.newCategory.id);
     console.log(this.newCategory);
     try {
-       await docRef.set(this.newCategory);
+      await docRef.set(this.newCategory);
       this.categories.push(proxy(this.newCategory));
       this.newCategory.id = "";
       this.newCategory.title = "";
@@ -98,10 +98,10 @@ export default class Categories extends Vue {
   }
 
   onSave() {
-    this.categories.map((category) => {
+    this.categories.map(category => {
       this.col.doc(category["id"]).update({
         title: category.title ?? "",
-        description: category.description ?? "",
+        description: category.description ?? ""
       });
     });
   }
@@ -111,7 +111,7 @@ export default class Categories extends Vue {
     if (!conf) return;
     try {
       await this.col.doc(id).delete();
-      const i = this.categories.findIndex((cat) => cat.id == id);
+      const i = this.categories.findIndex(cat => cat.id == id);
       this.categories.splice(i, 1);
       this.app.alert("Category " + id + " deleted!");
     } catch (e) {

@@ -8,7 +8,7 @@
 
 - This project is for managing for `getxfire project` But it can be used for serving the clients(members) of the app by customizing(designing) the front.
 
-- Cloud functions in fireflutter-firebase should be deployed to manage user accounts. Managing user accounts like creating/deleting is not allowed directly from frontend.
+- Cloud functions in getxfire-firebase should be deployed to manage user accounts. Managing user accounts like creating/deleting is not allowed directly from frontend.
 
 # Project Installation, Serving, Deployment
 
@@ -20,18 +20,6 @@ git clone https://github.com/faisalramdan17/getxfire; cd getxfire;git sparse-che
 ```sh
 npm i
 npm run serve
-```
-
-## Deploye fireflutter-firebase functions
-
-```sh
-git clone https://github.com/faisalramdan17/getxfire; cd getxfire;git sparse-checkout set firebase; cd firebase
-```
-```sh
-npm i
-cd functions
-npm i
-firebase deploy --only functions
 ```
 
 ## Project setup
@@ -78,9 +66,23 @@ npm run lint
 
 ### Firebase Hosting
 
-To deploy fireflutter-admin to firebase, follow the instructions below.
+## Deploye getxfire-firebase functions
 
-- Edit firebase project id
+```sh
+git clone https://github.com/faisalramdan17/getxfire; cd getxfire;git sparse-checkout set firebase; cd firebase
+```
+```sh
+cd getxfire
+cd firebase
+npm i
+cd functions
+npm i
+
+```
+
+To deploy getxfire-admin to firebase, follow the instructions below.
+
+- Edit firebase project id at `.firebaserc` file
 
 ```json
 {

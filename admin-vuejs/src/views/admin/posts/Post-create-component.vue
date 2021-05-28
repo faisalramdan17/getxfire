@@ -158,7 +158,7 @@ export default class PostsCreateComponent extends Vue {
     });
 
     /// TODO: upload progress indicator
-    task.on("next", (snapshot) => {
+    task.on("next", snapshot => {
       console.log("upload", snapshot.bytesTransferred, snapshot.totalBytes);
       console.log(
         "upload progress",

@@ -129,7 +129,7 @@ export default class Posts extends Vue {
     if (this.fetchingCategories) return;
     this.fetchingCategories = true;
     const snapshot = await this.categoriesCol.get();
-    snapshot.docs.forEach((doc) => {
+    snapshot.docs.forEach(doc => {
       this.categories.push(doc.id);
     });
 
@@ -186,7 +186,7 @@ export default class Posts extends Vue {
   onSelectAll(checked: boolean) {
     this.selectedPostIDs = [];
     if (checked) {
-      this.posts.forEach((post) => this.selectedPostIDs.push(post.id));
+      this.posts.forEach(post => this.selectedPostIDs.push(post.id));
     }
   }
 
@@ -196,7 +196,7 @@ export default class Posts extends Vue {
   }
 
   onDeleted(id: string) {
-    const idx = this.posts.findIndex((post) => post.id == id);
+    const idx = this.posts.findIndex(post => post.id == id);
     this.posts.splice(idx, 1);
   }
 
@@ -205,7 +205,7 @@ export default class Posts extends Vue {
 
     if (!conf) return;
 
-    this.selectedPostIDs.forEach((id) => {
+    this.selectedPostIDs.forEach(id => {
       this.postsCol.doc(id).delete();
       this.onDeleted(id);
     });

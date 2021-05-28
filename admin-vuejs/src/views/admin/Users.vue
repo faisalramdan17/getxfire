@@ -141,7 +141,7 @@ export default class Users extends Vue {
     const docRef = this.publicCol.doc(uid);
     try {
       const res = await docRef.get();
-      const i = this.users.findIndex((user) => user.uid == uid);
+      const i = this.users.findIndex(user => user.uid == uid);
       if (res.exists) {
         Object.assign(this.users[i], res.data());
       }
@@ -184,7 +184,7 @@ export default class Users extends Vue {
     if (this.checkbox.length) {
       this.checkbox = [];
     } else {
-      this.users.forEach((user) => {
+      this.users.forEach(user => {
         this.checkbox.push(user.uid);
       });
     }

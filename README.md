@@ -5,13 +5,6 @@
 ![building](https://github.com/jonataslaw/get/workflows/build/badge.svg)
 [![Telegram](https://img.shields.io/badge/chat-on%20Telegram-blue.svg)](https://t.me/faisalramdan17)
 
-<p><br/>
-    <a title="Buy me a coffee" href="https://www.buymeacoffee.com/faisalramdan17">
-        <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=faisalramdan17&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00">
-    </a>
-</p> 
-<br/>
-
 A Flutter Package that implemented firebase services with getx package example.
 
 It's free, open source, complete, rapid development package for creating Social apps, Chat apps, Community(Forum) apps, Shopping mall apps, and much more based on Firebase.
@@ -24,8 +17,21 @@ It's free, open source, complete, rapid development package for creating Social 
 - Real time.\
   We design it to be real time when it is applied to your app. All the events like post and comment creation, voting(like, dislike), deletion would appears on all the user's phone immediately after the event.
 
-Thanks so much for [sonub.com Publisher](https://pub.dev/publishers/sonub.com/packages)!<br/>
-We had inpirated by your package ([getxfire package](https://pub.dev/packages/getxfire)).
+Thanks so much for [sonub.com Publisher](https://pub.dev/publishers/sonub.com/packages)!
+
+**Note:**
+We've been inspired by your package ([fireflutter package](https://pub.dev/packages/fireflutter)).
+
+# Help Maintenance
+
+I've been maintaining quite many repos these days and burning out slowly. If you could help me cheer up, buying me a cup of coffee will make my life really happy and get much energy out of it.
+
+<p><br/>
+    <a title="Buy me a coffee" href="https://www.buymeacoffee.com/faisalramdan17" target="_blank">
+        <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=faisalramdan17&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00">
+    </a>
+</p> 
+<br/>
 
 # Features
 

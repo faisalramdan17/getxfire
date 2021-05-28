@@ -1,8 +1,8 @@
 <template>
   <div class="translations">
     <h1>Translations Page</h1>
-    <br>
-    <br>
+    <br />
+    <br />
     <table class="table">
       <tr>
         <td>
@@ -24,7 +24,8 @@
         </td>
       </tr>
     </table>
-    <br>
+
+    <br />
     <table class="table">
       <tr>
         <th>CODE</th>
@@ -43,6 +44,7 @@
         </td>
       </tr>
     </table>
+
     <p v-show="translations.length < 1">No translations yet</p>
     <p v-show="fetchingTranslations">Loading translation list ..</p>
   </div>
@@ -75,13 +77,13 @@ export default class Categories extends Vue {
   async fetchTranslations() {
     this.fetchingTranslations = true;
     const res = await this.col.get();
-    res.docs.forEach((doc) => {
+    res.docs.forEach(doc => {
       const lc = doc.id;
       this.languageCodes.push(lc);
       const data = doc.data();
       const keys = Object.keys(data);
 
-      keys.forEach((key) => {
+      keys.forEach(key => {
         if (!this.translations[key]) this.translations[key] = {};
         this.translations[key][lc] = data[key];
       });
@@ -94,7 +96,7 @@ export default class Categories extends Vue {
 
     const keys = Object.keys(this.translations);
     const data: any = {};
-    keys.forEach((key) => {
+    keys.forEach(key => {
       data[key] = "";
     });
 
@@ -109,8 +111,7 @@ export default class Categories extends Vue {
   }
 
   onSave(translationCode: string) {
-
-    this.languageCodes.forEach(async (lc) => {
+    this.languageCodes.forEach(async lc => {
       const data: any = {};
       if (!this.translations[translationCode]) {
         data[translationCode] = "";
@@ -133,7 +134,6 @@ export default class Categories extends Vue {
   }
 }
 </script>
-
 
 <style lang="scss" scoped>
 .table {

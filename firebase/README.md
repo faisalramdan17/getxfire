@@ -1,4 +1,4 @@
-# fireflutter-firebase
+# getxfire-firebase
 
 <p align="center">
     <a title="Buy me a coffee" href="https://www.buymeacoffee.com/faisalramdan17">
@@ -19,6 +19,8 @@ git clone https://github.com/faisalramdan17/getxfire; cd getxfire;git sparse-che
 - Install node modules for firestore rules and indexes which works in root folder.
 
 ```sh
+cd getxfire
+cd firebase
 npm i
 ```
 
@@ -27,6 +29,32 @@ npm i
 ```
 cd functions
 npm i
+```
+
+## Deploye getxfire-firebase 
+
+To deploy getxfire-admin to firebase, follow the instructions below.
+
+- Edit firebase project id at `.firebaserc` file
+
+```json
+{
+  "projects": {
+    "default": "... Input your project id here ..."
+  }
+}
+```
+
+- And run the following
+
+```sh
+firebase use [project-id]
+```
+
+- Then run
+
+```sh
+firebase deploy
 ```
 
 ## Test

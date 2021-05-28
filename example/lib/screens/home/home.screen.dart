@@ -94,26 +94,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: () => Get.toNamed('settings'),
                   child: Text('Settings'),
                 ),
-                // DropdownButton<String>(
-                //   value: ff.userLanguage,
-                //   items: [
-                //     DropdownMenuItem(value: 'ko', child: Text('Korean')),
-                //     DropdownMenuItem(value: 'en', child: Text('English')),
-                //   ],
-                //   onChanged: (String value) {
-                //     ff.updateProfile({'language': value});
-                //   },
-                // ),
               ],
             ),
           ),
-          // if (ff.isAdmin) ...[
-          //   Divider(),
-          //   ElevatedButton(
-          //     onPressed: () => Get.toNamed('admin'),
-          //     child: Text('Admin Screen'),
-          //   ),
-          // ],
+          DropdownButton<String>(
+            value: ff.userLanguage,
+            items: [
+              DropdownMenuItem(value: 'id', child: Text('Indonesia')),
+              DropdownMenuItem(value: 'ko', child: Text('Korean')),
+              DropdownMenuItem(value: 'en', child: Text('English')),
+            ],
+            onChanged: (String value) {
+              ff.updateProfile({'language': value});
+            },
+          ),
+          if (ff.isAdmin) ...[
+            Divider(),
+            ElevatedButton(
+              onPressed: () => Get.toNamed('admin'),
+              child: Text('Admin Screen'),
+            ),
+          ],
           // Divider(),
           // Wrap(
           //   children: [

@@ -21,8 +21,8 @@ export class Settings {
 
     console.log("Settings init");
 
-    this.settingsCol.onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
+    this.settingsCol.onSnapshot(querySnapshot => {
+      querySnapshot.forEach(doc => {
         this._settings = doc.data();
       });
     });

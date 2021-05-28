@@ -41,7 +41,7 @@ import "firebase/firestore";
 
 @Options({
   props: ["post"],
-  emits: ["on-deleted"],
+  emits: ["on-deleted"]
 })
 export default class PostComponent extends Vue {
   postsCol = firebase.firestore().collection("posts");

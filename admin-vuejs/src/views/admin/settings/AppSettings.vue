@@ -43,7 +43,7 @@ export default class AppSettings extends Vue {
   settings: any = {};
 
   created() {
-    this.col.doc("app").onSnapshot((doc) => (this.settings = doc.data()));
+    this.col.doc("app").onSnapshot(doc => (this.settings = doc.data()));
   }
 
   onSubmit() {

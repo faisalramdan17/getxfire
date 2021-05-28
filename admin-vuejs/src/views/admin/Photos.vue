@@ -57,7 +57,7 @@ export default class Posts extends Vue {
     this.loading = true;
     const folderRef = this.storageRef.child(this.path);
     const options: any = {
-      maxResults: 20,
+      maxResults: 20
     };
     if (this.nextPageToken) options["pageToken"] = this.nextPageToken;
     const res = await folderRef.list(options);
@@ -68,10 +68,10 @@ export default class Posts extends Vue {
     }
     this.nextPageToken = res.nextPageToken;
 
-    res.items.forEach(async (item) => {
+    res.items.forEach(async item => {
       const data = {
         url: "",
-        uid: "",
+        uid: ""
       };
       data.url = await item.getDownloadURL();
       const metaData = await item.getMetadata();
@@ -95,7 +95,7 @@ export default class Posts extends Vue {
     url = this.app.getStorageFileFromUrl(url, this.path);
     try {
       await this.app.fileDelete(url);
-      const pos = this.photos.findIndex((e) => e.includes(url.split("/")[1]));
+      const pos = this.photos.findIndex(e => e.includes(url.split("/")[1]));
       this.photos.splice(pos, 1);
 
       this.app.alert("success file deletion.");

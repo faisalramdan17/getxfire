@@ -49,7 +49,7 @@ export default class RegisterForm extends Vue {
       next();
     });
 
-    firebase.auth().onAuthStateChanged(async (user) => {
+    firebase.auth().onAuthStateChanged(async user => {
       if (user) {
         store.state.user = user;
         // console.log("user logged in!");

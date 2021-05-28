@@ -63,7 +63,7 @@ export default class Categories extends Vue {
   async fetchCategories() {
     this.fetchingCategories = true;
     const snapshot = await this.col.get();
-    snapshot.docs.forEach((doc) => {
+    snapshot.docs.forEach(doc => {
       this.categories.push(doc.data());
     });
     this.fetchingCategories = false;
