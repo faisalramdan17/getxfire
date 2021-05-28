@@ -81,6 +81,12 @@ It's free, open source, complete, rapid development package for creating Social 
 
   - Tight Firestore security rules are applied.
 
+- Admin Site
+
+  - There is no doubt that most apps need admin feature(or site) that works outside of the app. And that should be a desktop version of website since there are much contents to view.
+  - Unfortunately, Flutter web is not ready for production, so we have chosen `Vuejs` to build admin site to manage users, posts, photos and other resources in Fireflutter proejct.
+  - This README.md does not include much information about Admin site. Please visit github repository: [https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs](https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs) to know more about it.
+
 
 - Fully Customizable
   - GetxFire package does not involve in any of part application's login or UI. It is completely separated from the app. Thus, it's highly customizable.
@@ -88,6 +94,7 @@ It's free, open source, complete, rapid development package for creating Social 
 # References
 
 - [GetxFire Package](https://github.com/faisalramdan17/getxfire) - This Package.
+- [GetxFire Firebase Project](https://github.com/faisalramdan17/getxfire/tree/main/firebase) - Firebase project for Firestore security rules.
 - [GetxFire Sample App](https://github.com/faisalramdan17/getxfire/tree/main/example) - Example Flutter App.
 - [GetxFire Documentation](https://github.com/faisalramdan17/getxfire/wiki) - Wiki Documentation.
 
