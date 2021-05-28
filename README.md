@@ -4,7 +4,13 @@
 [![likes](https://badges.bar/getxfire/likes)](https://pub.dev/packages/getxfire/score)
 ![building](https://github.com/jonataslaw/get/workflows/build/badge.svg)
 [![Telegram](https://img.shields.io/badge/chat-on%20Telegram-blue.svg)](https://t.me/faisalramdan17)
-<a href="https://www.buymeacoffee.com/faisalramdan17" target="_blank"><img src="https://i.imgur.com/aV6DDA7.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" > </a>
+
+<p><br/>
+    <a title="Buy me a coffee" href="https://www.buymeacoffee.com/faisalramdan17">
+        <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=faisalramdan17&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00">
+    </a>
+</p> 
+<br/>
 
 A Flutter Package that implemented firebase services with getx package example.
 
@@ -18,6 +24,8 @@ It's free, open source, complete, rapid development package for creating Social 
 - Real time.\
   We design it to be real time when it is applied to your app. All the events like post and comment creation, voting(like, dislike), deletion would appears on all the user's phone immediately after the event.
 
+Thanks so much for [sonub.com Publisher](https://pub.dev/publishers/sonub.com/packages)!<br/>
+We had inpirated by your package ([getxfire package](https://pub.dev/packages/getxfire)).
 
 # Features
 
@@ -94,7 +102,7 @@ It's free, open source, complete, rapid development package for creating Social 
 # References
 
 - [GetxFire Package](https://github.com/faisalramdan17/getxfire) - This Package.
-- [GetxFire Firebase Project](https://github.com/faisalramdan17/getxfire/tree/main/firebase) - FAdmin Site with Vuejs.
+- [GetxFire Firebase Project](https://github.com/faisalramdan17/getxfire/tree/main/firebase) - Admin Site with Vuejs.
 - [GetxFire Admin Panel Vuejs](https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs) - Firebase project for Firestore security rules.
 - [GetxFire Sample App](https://github.com/faisalramdan17/getxfire/tree/main/example) - Example Flutter App.
 - [GetxFire Documentation](https://github.com/faisalramdan17/getxfire/wiki) - Wiki Documentation.

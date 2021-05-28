@@ -1,19 +1,24 @@
 # fireflutter-firebase
 
+<p align="center">
+    <a title="Buy me a coffee" href="https://www.buymeacoffee.com/faisalramdan17">
+        <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=faisalramdan17&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00">
+    </a>
+</p> 
+
 ## Installation
 
 - First, install [Firebase Tools](https://www.npmjs.com/package/firebase-tools).
 
-- Then, clone fireflutter-firebase
+- Then, clone firebase
 
 ```sh
-git clone https://github.com/thruthesky/fireflutter-firebase
+git clone https://github.com/faisalramdan17/getxfire; cd getxfire;git sparse-checkout set firebase; cd firebase
 ```
 
 - Install node modules for firestore rules and indexes which works in root folder.
 
 ```sh
-cd fireflutter-firebase
 npm i
 ```
 

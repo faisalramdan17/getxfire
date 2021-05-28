@@ -1,6 +1,12 @@
 # Firebase Admin
 
-- This project is for managing for `thefire project` But it can be used for serving the clients(members) of the app by customizing(designing) the front.
+<p align="center">
+    <a title="Buy me a coffee" href="https://www.buymeacoffee.com/faisalramdan17">
+        <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=faisalramdan17&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00">
+    </a>
+</p> 
+
+- This project is for managing for `getxfire project` But it can be used for serving the clients(members) of the app by customizing(designing) the front.
 
 - Cloud functions in fireflutter-firebase should be deployed to manage user accounts. Managing user accounts like creating/deleting is not allowed directly from frontend.
 
@@ -8,18 +14,20 @@
 
 ## Get flutter-admin project
 
+```sh
+git clone https://github.com/faisalramdan17/getxfire; cd getxfire;git sparse-checkout set admin-vuejs; cd admin-vuejs
 ```
-git clone https://github.com/thruthesky/fireflutter-admin
-cd fireflutter-admin
+```sh
 npm i
 npm run serve
 ```
 
 ## Deploye fireflutter-firebase functions
 
+```sh
+git clone https://github.com/faisalramdan17/getxfire; cd getxfire;git sparse-checkout set firebase; cd firebase
 ```
-git clone https://github.com/thruthesky/fireflutter-firebase
-cd fireflutter-firebase
+```sh
 npm i
 cd functions
 npm i
@@ -28,37 +36,37 @@ firebase deploy --only functions
 
 ## Project setup
 
-```
+```sh
 npm install
 ```
 
 ### Compiles and hot-reloads for development
 
-```
+```sh
 npm run serve
 ```
 
 ### Compiles and minifies for production
 
-```
+```sh
 npm run build
 ```
 
 ### Run your unit tests
 
-```
+```sh
 npm run test:unit
 ```
 
 ### Run your end-to-end tests
 
-```
+```sh
 npm run test:e2e
 ```
 
 ### Lints and fixes files
 
-```
+```sh
 npm run lint
 ```
 
