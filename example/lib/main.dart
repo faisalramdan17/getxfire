@@ -1,155 +1,104 @@
-import 'dart:async';
+// Copyright 2020 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
 
-import 'package:getxfire_example/screens/admin/admin.screen.dart';
-import 'package:getxfire_example/screens/admin/admin.category.screen.dart';
-import 'package:getxfire_example/screens/forum/post.edit.screen.dart';
-import 'package:getxfire_example/screens/forum/post.list.screen.dart';
-import 'package:getxfire_example/screens/home/home.screen.dart';
-import 'package:getxfire_example/screens/login/login.screen.dart';
-import 'package:getxfire_example/screens/phone_auth/phone_auth.screen.dart';
-import 'package:getxfire_example/screens/phone_auth/phone_auth_verification_code.screen.dart';
-import 'package:getxfire_example/screens/profile/profile.screen.dart';
-import 'package:getxfire_example/screens/push-notification/push-notification.screen.dart';
-import 'package:getxfire_example/screens/register/register.screen.dart';
-import 'package:getxfire_example/screens/search/search.screen.dart';
-import 'package:getxfire_example/screens/settings/settings.screen.dart';
-import 'package:getxfire_example/translations.dart';
+// @dart=2.9
+
+import 'package:getxfire_example/core.dart';
+import 'package:getxfire/getxfire.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import './global_variables.dart';
+import 'package:flutter_signin_button/button_builder.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() async {
+import 'pages/register_page.dart';
+import 'pages/signin_page.dart';
+
+// Requires that the Firebase Auth emulator is running locally
+// e.g via `melos run firebase:emulator`.
+/// See https://firebase.flutter.dev/docs/firestore/usage#emulator-usage
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await ff.init(
-    settings: {
-      'app': {
-        'default-language': 'id',
-        'verify-after-register': false,
-        'verify-after-login': false,
-        'force-verification': false,
-        'block-non-verified-users-to-create': false,
-        'ALGOLIA_APP_ID': "W42X6RIXO5",
-        'ALGOLIA_SEARCH_KEY': "710ce6c481caf890163ba0c24573130f",
-        'ALGOLIA_INDEX_NAME': "Dev"
-      },
-    },
-    translations: translations,
-    enableNotification: true,
-    firebaseServerToken:
-        'AAAAWrjrK94:APA91bGJuMd80xlpz1m8W61PxCS_2Ir_5y4mUcjPMUlNi-wGGaFoXQL9XiUTjBSv8fCSBBWa9-GTsuFNPWfrCF9TFOCmeJgzxtXfuS5EgH1NWEuEmlerbFAz-XIa2DYEpyQWkWwhFQJa',
-  );
-  runApp(MainApp());
+  await GetxFire.init();
+  // await FirebaseAuth.instance.useEmulator('http://localhost:9099');
+  // FirebaseFirestore.instance.settings = const Settings(
+  //   host: 'localhost:8080',
+  //   sslEnabled: false,
+  //   persistenceEnabled: false,
+  // );
+
+  runApp(AuthExampleApp());
 }
 
-class MainApp extends StatefulWidget {
+/// The entry point of the application.
+///
+/// Returns a [MaterialApp].
+class AuthExampleApp extends StatelessWidget {
   @override
-  _MainAppState createState() => _MainAppState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Firebase Example App',
+      theme: ThemeData.dark(),
+      home: Scaffold(
+        body: AuthTypeSelector(),
+      ),
+    );
+  }
 }
 
-class _MainAppState extends State<MainApp> {
-  @override
-  void initState() {
-    super.initState();
-    ff.translationsChange.listen((x) => setState(() => updateTranslations(x)));
-    ff.userChanges.listen((x) {
-      setState(() {
-        Get.updateLocale(Locale(ff.userLanguage));
-      });
-    });
-    ff.settingsChange.listen((settings) {
-      setState(() {});
-    });
-    Timer(Duration(milliseconds: 200), () {
-      // Get.toNamed(
-      //   'forum-list',
-      //   arguments: {'category': 'qna'},
-      // );
-      // Get.toNamed('phone-auth');
-
-      // () async {
-      //   await ff.login(email: 'user@gmail.com', password: '12345a');
-      //   print(ff.user.uid);
-      //   print(ff.user.email);
-      // }();
-      // Get.toNamed('settings');
-    });
-
-    ff.notification.listen((x) {
-      // Map<dynamic, dynamic> notification = x['notification'];
-      Map<dynamic, dynamic> data = x['data'];
-      // NotificationType type = x['type'];
-
-      // print('NotificationType: $type');
-      // print('notification: $notification');
-      // print('data: $data');
-
-      /// Ignore message from myself.
-      if (data['senderUid'] == ff.user.uid) {
-        return;
-      }
-      // if (type == NotificationType.onMessage) {
-      //   Get.snackbar(
-      //     notification['title'].toString(),
-      //     notification['body'].toString(),
-      //     onTap: (_) {
-      //       if (data != null && data['screen'] != null) {
-      //         Get.toNamed(data['screen'], arguments: {'id': data['id'] ?? ''});
-      //       }
-      //     },
-      //     mainButton: (data != null && data['screen'] != null)
-      //         ? TextButton(
-      //             child: Text('Open'),
-      //             onPressed: () {
-      //               Get.toNamed(data['screen'],
-      //                   arguments: {'id': data['id'] ?? ''});
-      //             },
-      //           )
-      //         : Container(),
-      //   );
-      // } else {
-      //   /// App will come here when the user open the app by tapping a push notification on the system tray.
-      //   if (data != null && data['screen'] != null) {
-      //     Get.toNamed(data['screen'],
-      //         arguments: {'id': data['id'] ?? '', 'data': data});
-      //   }
-      // }
-    });
+/// Provides a UI to select a authentication type page
+class AuthTypeSelector extends StatelessWidget {
+  // Navigates to a new page
+  void _pushPage(BuildContext context, Widget page) {
+    Navigator.of(context) /*!*/ .push(
+      MaterialPageRoute<void>(builder: (_) => page),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      initialRoute: 'home',
-      locale: Locale(ff.userLanguage),
-      translations: AppTranslations(),
-      getPages: [
-        GetPage(name: 'home', page: () => HomeScreen()),
-        GetPage(name: 'register', page: () => RegisterScreen()),
-        GetPage(name: 'login', page: () => LoginScreen()),
-        GetPage(name: 'profile', page: () => ProfileScreen()),
-        GetPage(name: 'admin', page: () => AdminScreen()),
-        GetPage(name: 'admin-category', page: () => AdminCategoryScreen()),
-        GetPage(name: 'forum-edit', page: () => ForumEditScreen()),
-        GetPage(name: 'forum-list', page: () => ForumListScreen()),
-        GetPage(name: 'phone-auth', page: () => PhoneAuthScreen()),
-        GetPage(
-            name: 'phone-auth-code-verification',
-            page: () => PhoneAuthCodeVerificationScreen()),
-        GetPage(name: 'push-notification', page: () => PushNotification()),
-        GetPage(name: 'settings', page: () => SettingsScreen()),
-        GetPage(name: 'search', page: () => SearchScreen()),
-      ],
-      routingCallback: (routing) {
-        if (ff.loggedIn) {
-          if (ff.user.phoneNumber.isBlank &&
-              ff.appSetting('force-verification') == true) {
-            if (routing.current != 'home') {
-              WidgetsBinding.instance
-                  .addPostFrameCallback((_) => Get.offNamed('phone-auth'));
-            }
-          }
-        }
-      },
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Firebase Example App'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(16),
+              alignment: Alignment.center,
+              child: SignInButtonBuilder(
+                icon: Icons.person_add,
+                backgroundColor: Colors.indigo,
+                text: 'Registration',
+                onPressed: () => _pushPage(context, RegisterPage()),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(16),
+              alignment: Alignment.center,
+              child: SignInButtonBuilder(
+                icon: Icons.verified_user,
+                backgroundColor: Colors.orange,
+                text: 'Sign In',
+                onPressed: () => _pushPage(context, SignInPage()),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(20),
+              alignment: Alignment.center,
+              child: SignInButtonBuilder(
+                icon: Icons.movie,
+                backgroundColor: Colors.red,
+                text: 'Movies List',
+                onPressed: () => _pushPage(context, MoviePage()),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

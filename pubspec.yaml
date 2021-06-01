@@ -1,11 +1,11 @@
 name: getxfire
 description: A Flutter Package that implemented firebase services with getx package example.
-version: 0.0.5
+version: 0.1.1
 homepage: https://github.com/faisalramdan17/getxfire/wiki
 repository: https://github.com/faisalramdan17/getxfire
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.20.0"
 
 dependencies:
@@ -16,31 +16,37 @@ dependencies:
 
   # Firebase Packages
   firebase_core: ^1.2.0
-  firebase_auth: ^1.1.4
-  cloud_firestore: ^2.1.0
-  firebase_storage: ^8.0.6
+  firebase_auth: ^1.2.0
+  cloud_firestore: ^2.2.0
+  firebase_storage: ^8.1.0
   # firebase_messaging: ^9.1.4 # Coming Soon
-  firebase_dynamic_links: ^2.0.3
-  firebase_analytics: ^8.0.4
+  firebase_dynamic_links: ^2.0.4
+  firebase_analytics: ^8.1.0
 
-  # SignIn Packages
+  # SignIn Packages  
   google_sign_in: ^5.0.4
   # flutter_facebook_auth: ^3.4.0 # Coming Soon
-  sign_in_with_apple: ^3.0.0 # Coming Soon
+  # sign_in_with_apple: ^3.0.0 # Coming Soon
 
-  # Utils Packages
-  dio: ^4.0.0
-  image_picker: ^0.7.5+3
-  permission_handler: ^8.0.0+2
-  flutter_image_compress: ^1.0.0
-  path: ^1.8.0
-  path_provider: ^2.0.2
-  location: ^4.1.1
-  geoflutterfire: ^3.0.0-nullsafety.4
-  rxdart: ^0.27.0 # Needs to be updated when geoflutterfire changes.
-  crypto: ^3.0.1 # md5 on chat, facebook  login
-  algolia: ^1.0.1
-  merge_map: ^1.0.2
+  # UI & Utils Packages
+  get: ^4.1.4
+  lottie: ^1.0.1
+  font_awesome_flutter: ^9.0.0
+  image_picker: ^0.8.0
+  image_cropper: ^1.4.0
+  flutter_animated_dialog: ^2.0.0
+  flutter_spinkit: ^5.0.0
+  # flutter_image_compress: ^1.0.0
+  # permission_handler: ^8.0.0+2
+  # path: ^1.8.0
+  # path_provider: ^2.0.2
+  # dio: ^4.0.0
+  # location: ^4.1.1
+  # geoflutterfire: ^3.0.0-nullsafety.4
+  # rxdart: ^0.27.0 # Needs to be updated when geoflutterfire changes.
+  # crypto: ^3.0.1 # md5 on chat, facebook  login
+  # algolia: ^1.0.1
+  # merge_map: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -67,9 +73,9 @@ flutter:
         fileName: getxfire_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+   - assets/images/
+   - assets/lottie/
   #
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages

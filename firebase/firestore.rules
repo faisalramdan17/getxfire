@@ -359,6 +359,4 @@ service cloud.firestore {
       return (request.resource.data.keys().hasAll(fields));
     }
   }
-
-
 }

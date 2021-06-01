@@ -6,7 +6,7 @@ description: Demonstrates how to use the getxfire plugin.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -28,6 +28,7 @@ dependencies:
   font_awesome_flutter: ^9.0.0
   country_code_picker: ^2.0.1
   google_sign_in: ^5.0.4
+  flutter_signin_button: ^2.0.0
 
 dev_dependencies:
   flutter_test:

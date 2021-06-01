@@ -39,11 +39,11 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 
   - User registration, login, profile update with email/password
   - Social logins
-    - Google
+    - Google (Coming Soon)
     - Apple (Coming Soon)
     - Facebook (Coming Soon)
   - User profile photo update
-  - Phone number authentication
+  - Phone number authentication (Coming Soon)
 
 - Forum (Coming Soon)
 
@@ -83,11 +83,11 @@ I've been maintaining quite many repos these days and burning out slowly. If you
   - App can update login user's GEO location. There are many possiblities by saving GEO location.
   - App can search other users(by distance, gender) near the login user GEO point.
 
-- Settings in real time.
+- Settings in real time. 
 
   - Admin can update app settings via Admin page and the change will apply to app immediately.
 
-- Internalization (Localization) in real time.
+- Internalization (Localization) in real time. (Coming Soon)
 
   - Texts in menu, text screens could be translated/update at any via Admin page and it appears in the app immediately.
 
@@ -95,7 +95,7 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 
   - Tight Firestore security rules are applied.
 
-- Admin Site
+- Admin Site (Coming Soon)
 
   - There is no doubt that most apps need admin feature(or site) that works outside of the app. And that should be a desktop version of website since there are much contents to view.
   - Unfortunately, Flutter web is not ready for production, so we have chosen `Vuejs` to build admin site to manage users, posts, photos and other resources in Fireflutter proejct.
