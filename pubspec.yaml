@@ -1,6 +1,6 @@
 name: getxfire
 description: A Flutter Package that implemented firebase services with getx package.
-version: 0.1.2
+version: 0.1.3
 homepage: https://github.com/faisalramdan17/getxfire/wiki
 repository: https://github.com/faisalramdan17/getxfire
 
@@ -29,6 +29,7 @@ dependencies:
   # sign_in_with_apple: ^3.0.0 # Coming Soon
 
   # UI & Utils Packages
+  intl: ^0.17.0
   get: ^4.1.4
   lottie: ^1.0.1
   font_awesome_flutter: ^9.0.0

@@ -19,6 +19,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
+import 'package:intl/intl.dart';
 
 // import 'dart:convert';
 // import 'dart:io';
@@ -49,6 +50,7 @@ part 'src/info_dialog.dart';
 part 'src/progress_hub.dart';
 part 'src/ex_button.dart';
 part 'src/lottie_path.dart';
+part 'src/converter_helper.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -85,6 +87,10 @@ class GetxFire {
   ///
   /// Returns an instance using the default [LottiePath].
   static LottiePath get lottiePath => LottiePath();
+
+  ///
+  /// Returns an instance using the default [ConverterHelper].
+  static ConverterHelper get converter => ConverterHelper();
 
   ///
   /// Returns the current [User] if they are currently signed-in, or `null` if

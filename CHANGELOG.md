@@ -1,3 +1,7 @@
+## 0.1.3 - Updates (2 June 2021)
+
+- Added `GetxFire.converter` for `ConverterHelper`.
+
 ## 0.1.2 - Updates (2 June 2021)
 
 - Fixed `GetxFire.openDialog` & `GetxFire.progressHud`.
