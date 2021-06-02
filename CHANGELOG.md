@@ -1,3 +1,7 @@
+## 0.1.4 - Updates (2 June 2021)
+
+- Fixed `GetxFire.converter`.
+
 ## 0.1.3 - Updates (2 June 2021)
 
 - Added `GetxFire.converter` for `ConverterHelper`.

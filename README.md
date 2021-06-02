@@ -88,10 +88,11 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 # References
 
 - [GetxFire Package](https://github.com/faisalramdan17/getxfire) - This Package.
-<!-- - [GetxFire Firebase Project](https://github.com/faisalramdan17/getxfire/tree/main/firebase) - Admin Site with Vuejs. -->
-<!-- - [GetxFire Admin Panel Vuejs](https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs) - Firebase project for Firestore security rules. -->
 - [GetxFire Sample App](https://github.com/faisalramdan17/getxfire/tree/main/example) - Example Flutter App.
 - [GetxFire Documentation](https://github.com/faisalramdan17/getxfire/wiki) - Wiki Documentation.
+
+<!-- - [GetxFire Firebase Project](https://github.com/faisalramdan17/getxfire/tree/main/firebase) - Admin Site with Vuejs. -->
+<!-- - [GetxFire Admin Panel Vuejs](https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs) - Firebase project for Firestore security rules. -->
 
 # Components
 
