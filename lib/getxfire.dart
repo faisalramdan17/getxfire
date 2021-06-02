@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/services.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -44,8 +45,10 @@ part 'src/firestore_service.dart';
 part 'src/storage_service.dart';
 part 'src/open_dialog.dart';
 part 'src/confirm_dialog.dart';
+part 'src/info_dialog.dart';
 part 'src/progress_hub.dart';
 part 'src/ex_button.dart';
+part 'src/lottie_path.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -78,6 +81,10 @@ class GetxFire {
   ///
   /// Returns an instance using the default [ProgressHud].
   static ProgressHud get progressHud => ProgressHud();
+
+  ///
+  /// Returns an instance using the default [LottiePath].
+  static LottiePath get lottiePath => LottiePath();
 
   ///
   /// Returns the current [User] if they are currently signed-in, or `null` if
@@ -174,6 +181,31 @@ class GetxFire {
         onError: onError,
       );
 
+  /// Logs into Firebase Auth by Google Signin.
+  ///
+  /// It can update user displayName, photoURL or other public data while login.
+  ///
+  /// TODO Leave last login timestamp.
+  /// TODO Increment login count
+  /// TODO Leave last login device & IP address.
+  ///
+  static Future<UserCredential?> signInWithGoogle({
+    bool isSuccessDialog = false,
+    bool isErrorDialog = true,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? public,
+    Function(UserCredential? userCredential)? onSuccess,
+    Function(String? code, String? message)? onError,
+  }) async =>
+      Auth.signInWithGoogle(
+        data: data,
+        public: public,
+        isSuccessDialog: isSuccessDialog,
+        isErrorDialog: isErrorDialog,
+        onSuccess: onSuccess,
+        onError: onError,
+      );
+
   /// Logs into Firebase Auth.
   ///
   /// It can update user displayName, photoURL or other public data while login.
@@ -230,7 +262,9 @@ class GetxFire {
 
   /// Logs out from Firebase Auth and All Social Login.
   static Future<void> signOut({bool isSocialLogout = true}) async {
-    if (isSocialLogout) await GoogleSignIn().signOut();
+    if (isSocialLogout) {
+      if (GoogleSignIn().currentUser != null) await GoogleSignIn().signOut();
+    }
     return await FirebaseAuth.instance.signOut();
   }
 }

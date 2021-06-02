@@ -5,7 +5,7 @@
 ![building](https://github.com/jonataslaw/get/workflows/build/badge.svg)
 [![Telegram](https://img.shields.io/badge/chat-on%20Telegram-blue.svg)](https://t.me/faisalramdan17)
 
-A Flutter Package that implemented firebase services with getx package example.
+A Flutter Package that implemented firebase services with getx package.
 
 It's free, open source, complete, rapid development package for creating Social apps, Chat apps, Community(Forum) apps, Shopping mall apps, and much more based on Firebase.
 
@@ -16,11 +16,6 @@ It's free, open source, complete, rapid development package for creating Social 
   We know when it gets complicated, our lives would get even more complicated.
 - Real time.\
   We design it to be real time when it is applied to your app. All the events like post and comment creation, voting(like, dislike), deletion would appears on all the user's phone immediately after the event.
-
-Thanks so much for [sonub.com Publisher](https://pub.dev/publishers/sonub.com/packages)!
-
-**Note:**
-We've been inspired by your package ([fireflutter package](https://pub.dev/packages/fireflutter)).
 
 # Help Maintenance
 
@@ -37,29 +32,14 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 
 - User
 
-  - User registration, login, profile update with email/password
+  - User registration and login with email/password
+  - User profile update
+  - User profile photo update
   - Social logins
-    - Google (Coming Soon)
+    - Google
     - Apple (Coming Soon)
     - Facebook (Coming Soon)
-  - User profile photo update
   - Phone number authentication (Coming Soon)
-
-- Forum (Coming Soon)
-
-  - Complete forum functioanlities.
-    - Forum category add/update/delete in admin page.
-    - Post and comment create/update/read/delete, likes/dislikes, file upload/delete. And any other extra functioanalties to compete forum feature.
-  - Block users who didn't verify their phone nubmers to create posts & comments.
-  - Forum search with Algolia.
-  - Infinite scroll.
-  - Real time.
-    - If a user create a comment, it will appear on other user's phone. And this goes same to all edit/delete, likes/dislikes.
-  - A category of forum could be re-designed for any purpose like online shopping mall, blog, etc.
-
-- Search (Coming Soon)
-
-  - posts and comments search.
 
 - Push notifications (Coming Soon)
 
@@ -68,7 +48,7 @@ I've been maintaining quite many repos these days and burning out slowly. If you
   - User can enable/disable to get notification when other users creates comments under his posts/comments.
   - User can subscribe/unsubscribe for new posts or comments under a forum.
 
-- Chat (Coming Soon)
+<!-- - Chat (Coming Soon)
 
   - A complete chat functionality which includes
     - Group chat
@@ -76,30 +56,30 @@ I've been maintaining quite many repos these days and burning out slowly. If you
     - Blocking users
     - Kickout users
     - Changing settings of chat room
-  - Expect more to come.
+  - Expect more to come. -->
 
 - Location (Coming Soon)
 
   - App can update login user's GEO location. There are many possiblities by saving GEO location.
   - App can search other users(by distance, gender) near the login user GEO point.
 
-- Settings in real time. 
+<!-- - Settings in real time. 
 
   - Admin can update app settings via Admin page and the change will apply to app immediately.
 
 - Internalization (Localization) in real time. (Coming Soon)
 
-  - Texts in menu, text screens could be translated/update at any via Admin page and it appears in the app immediately.
+  - Texts in menu, text screens could be translated/update at any via Admin page and it appears in the app immediately. -->
 
 - Security
 
   - Tight Firestore security rules are applied.
 
-- Admin Site (Coming Soon)
+<!-- - Admin Site (Coming Soon)
 
   - There is no doubt that most apps need admin feature(or site) that works outside of the app. And that should be a desktop version of website since there are much contents to view.
   - Unfortunately, Flutter web is not ready for production, so we have chosen `Vuejs` to build admin site to manage users, posts, photos and other resources in Fireflutter proejct.
-  - This README.md does not include much information about Admin site. Please visit github repository: [https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs](https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs) to know more about it.
+  - This README.md does not include much information about Admin site. Please visit github repository: [https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs](https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs) to know more about it. -->
 
 
 - Fully Customizable
@@ -108,8 +88,8 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 # References
 
 - [GetxFire Package](https://github.com/faisalramdan17/getxfire) - This Package.
-- [GetxFire Firebase Project](https://github.com/faisalramdan17/getxfire/tree/main/firebase) - Admin Site with Vuejs.
-- [GetxFire Admin Panel Vuejs](https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs) - Firebase project for Firestore security rules.
+<!-- - [GetxFire Firebase Project](https://github.com/faisalramdan17/getxfire/tree/main/firebase) - Admin Site with Vuejs. -->
+<!-- - [GetxFire Admin Panel Vuejs](https://github.com/faisalramdan17/getxfire/tree/main/admin-vuejs) - Firebase project for Firestore security rules. -->
 - [GetxFire Sample App](https://github.com/faisalramdan17/getxfire/tree/main/example) - Example Flutter App.
 - [GetxFire Documentation](https://github.com/faisalramdan17/getxfire/wiki) - Wiki Documentation.
 
@@ -126,9 +106,9 @@ I've been maintaining quite many repos these days and burning out slowly. If you
   Flutter as its app development toolkit.
 
 
-- Algolia\
+<!-- - Algolia\
   Firebase does not support full text search which means users cannot search posts and comments.
-  Algolia does it.
+  Algolia does it. -->
 
 - And other open source Flutter & Dart packages.
 

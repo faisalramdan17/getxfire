@@ -249,12 +249,17 @@ class _MovieItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 4, top: 4),
-      child: Row(
-        children: [
-          poster,
-          Flexible(child: details),
-        ],
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            children: [
+              poster,
+              Flexible(child: details),
+            ],
+          ),
+        ),
       ),
     );
   }

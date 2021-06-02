@@ -4,7 +4,7 @@ class ProgressHud extends PopupRoute {
   /*
   * Show message.
   * */
-  static Future<void> showMessage(String message,
+  Future<void> showMessage(String message,
       {bool isSucceess = false, isHideIcon = false}) async {
     try {
       if (_currentHud != null) {
@@ -25,7 +25,7 @@ class ProgressHud extends PopupRoute {
     }
   }
 
-  static Future<void> showUpCommingMessage() async {
+  Future<void> showUpCommingMessage() async {
     try {
       if (_currentHud != null) {
         _currentHud?.navigator?.pop();
@@ -49,7 +49,7 @@ class ProgressHud extends PopupRoute {
   * when you want to do anything, you can call this show.
   * for example： begin network request
   * */
-  static Future<void> show() async {
+  Future<void> show() async {
     try {
       if (_currentHud != null) {
         _currentHud?.navigator?.pop();
@@ -66,7 +66,7 @@ class ProgressHud extends PopupRoute {
   * hide hud
   * when you complete something,you can call this hide to hide hud.
   * */
-  static Future<void> hide() async {
+  Future<void> hide() async {
     try {
       _currentHud?.navigator?.pop();
       _currentHud = null;
@@ -99,7 +99,7 @@ class ProgressHud extends PopupRoute {
 
   String loadingMessage = 'loading ...';
 
-  static ProgressHud? _currentHud;
+  ProgressHud? _currentHud;
 
   @override
   Color? get barrierColor => null;

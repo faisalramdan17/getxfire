@@ -45,9 +45,10 @@ class ConfirmDialog extends StatelessWidget {
               (lottiePath == null)
                   ? Container()
                   : Padding(
-                      padding: const EdgeInsets.only(bottom: 15.0),
+                      padding: const EdgeInsets.only(bottom: 15.0, top: 8),
                       child: Lottie.asset(
-                        lottiePath!, // "assets/lottie/$lottiePath.json",
+                        lottiePath!,
+                        package: "getxfire",
                         height: lottieHeight ?? 130,
                         fit: BoxFit.fitWidth,
                       ),
@@ -84,34 +85,73 @@ class ConfirmDialog extends StatelessWidget {
                       child: customWidget,
                     ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      child: ExButton(
-                        icon: iconLeftButton,
-                        labelButton: labelLeftButton ?? "No",
-                        color: colorLeftButton ?? Colors.black38,
-                        colorText: colorLeftTextButton ?? Colors.white,
-                        fontSize: fontSizeLeftButton,
-                        onPressed: onLeftPressed,
+                    Expanded(
+                      child: InkWell(
+                        onTap: onLeftPressed,
+                        child: Container(
+                          height: 45,
+                          color: colorLeftButton,
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(15),
+                            ),
+                            border: Border.all(
+                              color: Colors.grey[300]!,
+                              width: 1,
+                            ),
+                          ),
+                          child: Center(
+                              child: Text(
+                            labelLeftButton ?? "Cancel",
+                            style: TextStyle(
+                                color: colorLeftTextButton,
+                                fontSize: fontSizeLeftButton ?? 16),
+                          )),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      child: ExButton(
-                        icon: iconRightButton,
-                        labelButton: labelRightButton ?? "Yes",
-                        color: colorRightButton ??
-                            (Get.isDarkMode ? Colors.white : Colors.green[400]),
-                        colorText: colorRightTextButton ??
-                            (Get.isDarkMode ? Colors.black87 : Colors.white),
-                        fontSize: fontSizeRightButton,
-                        onPressed: onRightPressed,
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: InkWell(
+                        onTap: onRightPressed,
+                        child: Container(
+                          height: 45,
+                          color: colorRightButton,
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          decoration: BoxDecoration(
+                            color: Get.theme.primaryColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(15),
+                            ),
+                          ),
+                          child: Center(
+                              child: Text(
+                            labelRightButton ?? "Yes",
+                            style: TextStyle(
+                                color: colorRightTextButton ?? Colors.white,
+                                fontSize: fontSizeRightButton ?? 16),
+                          )),
+                        ),
                       ),
                     ),
+                    // Padding(
+                    //   padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    //   child: ExButton(
+                    //     icon: iconRightButton,
+                    //     labelButton: labelRightButton ?? labels.text.yes,
+                    //     color: colorRightButton ??
+                    //         (Get.isDarkMode ? Colors.white : Colors.green[400]),
+                    //     colorText: colorRightTextButton ??
+                    //         (Get.isDarkMode ? Colors.black87 : Colors.white),
+                    //     fontSize: fontSizeRightButton,
+                    //     onPressed: onRightPressed,
+                    //   ),
+                    // ),
                   ],
                 ),
               )

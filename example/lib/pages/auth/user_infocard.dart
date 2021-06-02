@@ -81,7 +81,7 @@ class UserInfoCardState extends State<UserInfoCard> {
                       onDismissed: (action) =>
                           widget.user.unlink(provider.providerId),
                       child: Card(
-                        color: Colors.grey[700],
+                        color: Colors.grey[300],
                         child: ListTile(
                           leading: provider.photoURL == null
                               ? IconButton(

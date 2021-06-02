@@ -23,13 +23,14 @@ class Auth {
       // await onLogin(userCredential.user);
       if (onSuccess != null) await onSuccess(userCredential);
       if (isSuccessDialog)
-        OpenDialog.messageSuccess("Create User successfully!");
+        GetxFire.openDialog.messageSuccess("Create User successfully!");
     } on FirebaseAuthException catch (e) {
       if (onError != null) await onError(e.code, e.message ?? e.toString());
-      if (isErrorDialog) OpenDialog.messageError(e.message ?? e.toString());
+      if (isErrorDialog)
+        GetxFire.openDialog.messageError(e.message ?? e.toString());
     } catch (e) {
       if (onError != null) await onError("undefined", e.toString());
-      if (isErrorDialog) OpenDialog.messageError(e.toString());
+      if (isErrorDialog) GetxFire.openDialog.messageError(e.toString());
     }
     return userCredential;
   }
@@ -44,13 +45,15 @@ class Auth {
     try {
       userCredential = await _auth.signInAnonymously();
       if (onSuccess != null) await onSuccess(userCredential);
-      if (isSuccessDialog) OpenDialog.messageSuccess("Sign in successfully!");
+      if (isSuccessDialog)
+        GetxFire.openDialog.messageSuccess("Sign in successfully!");
     } on FirebaseAuthException catch (e) {
       if (onError != null) await onError(e.code, e.message ?? e.toString());
-      if (isErrorDialog) OpenDialog.messageError(e.message ?? e.toString());
+      if (isErrorDialog)
+        GetxFire.openDialog.messageError(e.message ?? e.toString());
     } catch (e) {
       if (onError != null) await onError("undefined", e.toString());
-      if (isErrorDialog) OpenDialog.messageError(e.toString());
+      if (isErrorDialog) GetxFire.openDialog.messageError(e.toString());
     }
     return userCredential;
   }
@@ -76,13 +79,69 @@ class Auth {
       // await updateUserPublic(public);
       // await onLogin(userCredential.user);
       if (onSuccess != null) await onSuccess(userCredential);
-      if (isSuccessDialog) OpenDialog.messageSuccess("Sign in successfully!");
+      if (isSuccessDialog)
+        GetxFire.openDialog.messageSuccess("Sign in successfully!");
     } on FirebaseAuthException catch (e) {
       if (onError != null) await onError(e.code, e.message ?? e.toString());
-      if (isErrorDialog) OpenDialog.messageError(e.message ?? e.toString());
+      if (isErrorDialog)
+        GetxFire.openDialog.messageError(e.message ?? e.toString());
     } catch (e) {
       if (onError != null) await onError("undefined", e.toString());
-      if (isErrorDialog) OpenDialog.messageError(e.toString());
+      if (isErrorDialog) GetxFire.openDialog.messageError(e.toString());
+    }
+    return userCredential;
+  }
+
+  static Future<UserCredential?>? signInWithGoogle({
+    required bool isSuccessDialog,
+    required bool isErrorDialog,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? public,
+    Function(UserCredential? userCredential)? onSuccess,
+    Function(String? code, String? message)? onError,
+  }) async {
+    UserCredential? userCredential;
+    try {
+      if (kIsWeb) {
+        var googleProvider = GoogleAuthProvider();
+        userCredential = await _auth.signInWithPopup(googleProvider);
+      } else {
+        final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+        // Return null to prevent further exceptions if googleSignInAccount is null
+        if (googleUser == null) return null;
+
+        final GoogleSignInAuthentication? googleAuth =
+            await googleUser.authentication;
+
+        final googleAuthCredential = GoogleAuthProvider.credential(
+          accessToken: googleAuth?.accessToken,
+          idToken: googleAuth?.idToken,
+        );
+        userCredential = await _auth.signInWithCredential(googleAuthCredential);
+      }
+
+      // userPublicData = {};
+      // await updateUserData(data);
+      // await updateUserPublic(public);
+      // await onLogin(userCredential.user);
+      if (onSuccess != null) await onSuccess(userCredential);
+      if (isSuccessDialog)
+        GetxFire.openDialog.messageSuccess("Sign in successfully!");
+    } on PlatformException catch (e) {
+      print("[PlatformException] : ${e.code}");
+      if (onError != null) await onError(e.code, e.message ?? e.toString());
+      if (isErrorDialog)
+        GetxFire.openDialog.messageError(e.message ?? e.toString());
+    } on FirebaseAuthException catch (e) {
+      print("[FirebaseAuthException] : ${e.code}");
+      if (onError != null) await onError(e.code, e.message ?? e.toString());
+      if (isErrorDialog)
+        GetxFire.openDialog.messageError(e.message ?? e.toString());
+    } catch (e) {
+      print("[Exception] : ${e.toString()}");
+      if (onError != null) await onError("undefined", e.toString());
+      if (isErrorDialog) GetxFire.openDialog.messageError(e.toString());
     }
     return userCredential;
   }

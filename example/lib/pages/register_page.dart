@@ -102,6 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
     GetxFire.createUserWithEmailAndPassword(
       email: _emailController.text,
       password: _passwordController.text,
+      isSuccessDialog: true,
       onSuccess: (userCredential) {
         if (userCredential.user != null) {
           setState(() {
@@ -113,11 +114,11 @@ class _RegisterPageState extends State<RegisterPage> {
         }
       },
       onError: (code, message) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Failed to sign in with Email & Password\n$message'),
-          ),
-        );
+        // ScaffoldMessenger.of(context).showSnackBar(
+        //   SnackBar(
+        //     content: Text('Failed to sign in with Email & Password\n$message'),
+        //   ),
+        // );
       },
     );
   }

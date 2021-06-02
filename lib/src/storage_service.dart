@@ -56,7 +56,7 @@ class StorageService {
         );
       });
     } catch (e) {
-      OpenDialog.messageError(e.toString());
+      GetxFire.openDialog.messageError(e.toString());
       return null;
     }
   }
@@ -81,7 +81,7 @@ class StorageService {
         print("CODE = ${e.code}");
         if (e.code == 'object-not-found') return true;
 
-        OpenDialog.messageError(e.toString());
+        GetxFire.openDialog.messageError(e.toString());
         return false;
       }
     } else

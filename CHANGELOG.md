@@ -1,3 +1,9 @@
+## 0.1.2 - Updates (2 June 2021)
+
+- Fixed `GetxFire.openDialog` & `GetxFire.progressHud`.
+- Added `GetxFire.lottiePath` for `LottiePath`.
+- Added `GetxFire.signInWithGoogle` for sign in with Google.
+
 ## 0.1.1 - Firestore, Storage, ProgressHud, & Popup Dialog (2 June 2021)
 
 - Added `GetxFire.firestore` for `FirestoreService`.

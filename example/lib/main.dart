@@ -4,6 +4,7 @@
 
 // @dart=2.9
 
+import 'package:get/get.dart';
 import 'package:getxfire_example/core.dart';
 import 'package:getxfire/getxfire.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +37,9 @@ Future<void> main() async {
 class AuthExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Firebase Example App',
-      theme: ThemeData.dark(),
+    return GetMaterialApp(
+      title: 'GetxFire Example App',
+      // theme: ThemeData.dark(),
       home: Scaffold(
         body: AuthTypeSelector(),
       ),
@@ -59,7 +60,7 @@ class AuthTypeSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Firebase Example App'),
+        title: const Text('GetxFire Example App'),
       ),
       body: Center(
         child: Column(

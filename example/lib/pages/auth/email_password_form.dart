@@ -89,11 +89,11 @@ class EmailPasswordFormState extends State<EmailPasswordForm> {
         );
       },
       onError: (code, message) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Failed to sign in with Email & Password\n$message'),
-          ),
-        );
+        // ScaffoldMessenger.of(context).showSnackBar(
+        //   SnackBar(
+        //     content: Text('Failed to sign in with Email & Password\n$message'),
+        //   ),
+        // );
       },
     );
   }

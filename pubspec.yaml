@@ -1,6 +1,6 @@
 name: getxfire
-description: A Flutter Package that implemented firebase services with getx package example.
-version: 0.1.1
+description: A Flutter Package that implemented firebase services with getx package.
+version: 0.1.2
 homepage: https://github.com/faisalramdan17/getxfire/wiki
 repository: https://github.com/faisalramdan17/getxfire
 
@@ -74,7 +74,6 @@ flutter:
 
   # To add assets to your plugin package, add an assets section, like this:
   assets:
-   - assets/images/
    - assets/lottie/
   #
   # For details regarding assets in packages, see

@@ -1,11 +1,11 @@
 part of '../getxfire.dart';
 
 class OpenDialog {
-  static const DialogTransitionType animationType = DialogTransitionType.size;
+  DialogTransitionType animationType = DialogTransitionType.size;
 
-  static Future<void> messageSuccess(String message,
+  Future<void> messageSuccess(String message,
       {String? title, Duration? duration}) async {
-    await ProgressHud.hide();
+    await GetxFire.progressHud.hide();
 
     Get.snackbar(
       title ?? "Success",
@@ -21,9 +21,9 @@ class OpenDialog {
     );
   }
 
-  static Future<void> messageError(String message,
+  Future<void> messageError(String message,
       {String? title, Duration? duration}) async {
-    await ProgressHud.hide();
+    await GetxFire.progressHud.hide();
     print("[ERROR] : ${message.toString()}");
 
     Get.snackbar(
@@ -40,10 +40,41 @@ class OpenDialog {
     );
   }
 
-  static Future<T?> confirm<T>({
+  Future<T?> info<T>({
     String? title,
     String? content,
-    String? lottieFilename,
+    String? lottiePath,
+    EdgeInsets? lottiePadding,
+    String? labelButton,
+    Function()? onClicked,
+    Widget? customWidget,
+    bool isBackAfterYes = true,
+  }) async {
+    return await showAnimatedDialog(
+      context: Get.context!,
+      barrierDismissible: true,
+      animationType: animationType,
+      curve: Curves.fastOutSlowIn,
+      duration: Duration(milliseconds: 500),
+      builder: (_) => InfoDialog(
+        title: title,
+        content: content,
+        lottiePath: lottiePath,
+        lottiePadding: lottiePadding,
+        labelButton: labelButton,
+        customWidget: customWidget,
+        onPressed: () {
+          if (isBackAfterYes) Get.back();
+          if (onClicked != null) onClicked();
+        },
+      ),
+    );
+  }
+
+  Future<T?> confirm<T>({
+    String? title,
+    String? content,
+    String? lottiePath,
     String? labelNoButton,
     Function()? onNoClicked,
     String? labelYesButton,
@@ -51,7 +82,7 @@ class OpenDialog {
     Widget? customWidget,
     bool isBackAfterYes = true,
   }) async {
-    await ProgressHud.hide();
+    await GetxFire.progressHud.hide();
     return await showAnimatedDialog(
       context: Get.context!,
       barrierDismissible: true,
@@ -61,7 +92,7 @@ class OpenDialog {
       builder: (_) => ConfirmDialog(
         title: title,
         content: content,
-        lottiePath: lottieFilename,
+        lottiePath: lottiePath,
         labelLeftButton: labelNoButton,
         customWidget: customWidget,
         onLeftPressed: () {
@@ -77,7 +108,7 @@ class OpenDialog {
     );
   }
 
-  static Future<T?> getImage<T>({
+  Future<T?> getImage<T>({
     String? title,
     String? content,
     CropStyle cropStyle = CropStyle.rectangle,
@@ -96,7 +127,7 @@ class OpenDialog {
         return ConfirmDialog(
           title: title,
           content: content ?? "Choose the one to use:",
-          lottiePath: "image-icon",
+          lottiePath: GetxFire.lottiePath.IMAGE_ICON,
           labelLeftButton: "Camera",
           colorLeftButton:
               Get.isDarkMode ? null : Colors.blue[600]?.withOpacity(0.9),
@@ -127,7 +158,7 @@ class OpenDialog {
     );
   }
 
-  static Future<File?> imageCropper(String imagePath,
+  Future<File?> imageCropper(String imagePath,
       {CropStyle cropStyle = CropStyle.rectangle, int maxSize = 1080}) async {
     return await ImageCropper.cropImage(
       sourcePath: imagePath,

@@ -15,7 +15,7 @@ class FirestoreService {
             .add(data)
             .then((value) => true)
             .catchError((error) {
-          OpenDialog.messageError(error.toString());
+          GetxFire.openDialog.messageError(error.toString());
           return false;
         });
       else
@@ -25,11 +25,11 @@ class FirestoreService {
             .set(data)
             .then((value) => true)
             .catchError((error) {
-          OpenDialog.messageError(error.toString());
+          GetxFire.openDialog.messageError(error.toString());
           return false;
         });
     } catch (e) {
-      OpenDialog.messageError(e.toString());
+      GetxFire.openDialog.messageError(e.toString());
       return false;
     }
   }
@@ -46,11 +46,11 @@ class FirestoreService {
           .update(data)
           .then((value) => true)
           .catchError((error) {
-        OpenDialog.messageError(error.toString());
+        GetxFire.openDialog.messageError(error.toString());
         return false;
       });
     } catch (e) {
-      OpenDialog.messageError(e.toString());
+      GetxFire.openDialog.messageError(e.toString());
       return false;
     }
   }
@@ -67,12 +67,12 @@ class FirestoreService {
           .orderBy("createdAt", descending: true)
           .get()
           .catchError((error) {
-        OpenDialog.messageError(error.toString());
+        GetxFire.openDialog.messageError(error.toString());
         // return null;
       });
       return _doc.docs;
     } catch (e) {
-      OpenDialog.messageError(e.toString());
+      GetxFire.openDialog.messageError(e.toString());
       rethrow;
     }
   }
@@ -95,12 +95,12 @@ class FirestoreService {
           .orderBy("createdAt", descending: true)
           .get()
           .catchError((error) {
-        OpenDialog.messageError(error.toString());
+        GetxFire.openDialog.messageError(error.toString());
         // return null;
       });
       return _doc.docs;
     } catch (e) {
-      OpenDialog.messageError(e.toString());
+      GetxFire.openDialog.messageError(e.toString());
       rethrow;
     }
   }
@@ -115,12 +115,12 @@ class FirestoreService {
           .doc(id)
           .get()
           .catchError((error) {
-        OpenDialog.messageError(error.toString());
+        GetxFire.openDialog.messageError(error.toString());
         // return null;
       });
       return doc;
     } catch (e) {
-      OpenDialog.messageError(e.toString());
+      GetxFire.openDialog.messageError(e.toString());
       rethrow;
     }
   }
@@ -140,11 +140,11 @@ class FirestoreService {
           await StorageService().deleteFile(photo.filename!,
               fileType: photo.type!, folder: photo.folder!);
       }).catchError((error) {
-        OpenDialog.messageError(error.toString());
+        GetxFire.openDialog.messageError(error.toString());
         return null;
       });
     } catch (e) {
-      OpenDialog.messageError(e.toString());
+      GetxFire.openDialog.messageError(e.toString());
       rethrow;
     }
   }
