@@ -1,3 +1,7 @@
+## 0.1.6 - Updates (7 June 2021)
+
+- Updated Readme File for detail documentation.
+
 ## 0.1.5 - Updates (6 June 2021)
 
 - Added `GetxFire.helper` for `Helper`.
