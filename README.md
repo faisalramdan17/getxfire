@@ -87,7 +87,7 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 
 # Getting Started
 
-#### Installation
+### Installation
 Install the library from pub:
 ```
 dependencies:
@@ -95,58 +95,120 @@ dependencies:
 ```
 
 
-#### Import the library
+### Import the library
 ```
 import 'package:getxfire/getxfire.dart';
 ```
 
-#### Init GetxFire
+### Init GetxFire
 Add this inside `main()` function at `main.dart` file:
 ```
 WidgetsFlutterBinding.ensureInitialized();
 await GetxFire.init();
 ```
 
-#### Usage
+### Usage
 
-##### Open Dialog
+#### Open Dialog
+Will popup success message  :
 ```
-GetxFire.openDialog.<functions>
+GetxFire.openDialog.messageSuccess("Create User successfully!");
+```
+Will popup error message :
+```
+GetxFire.openDialog.messageError("Failed to Create User!");
+```
+Will popup info message :
+```
+GetxFire.openDialog.info(
+  lottiePath: GetxFire.lottiePath.COMING_SOON,
+  lottiePadding: EdgeInsets.only(top: 50),
+);
+```
+Will popup message with yes and no confirm button :
+```
+GetxFire.openDialog.confirm(
+  content: "Are you sure to sign out?",
+  lottiePath: GetxFire.lottiePath.THINKING, // lottiePath: "assets/lottie/coffee-favorite.json",
+  onYesClicked: () async {
+    final User user = GetxFire.currentUser;
+    if (user == null) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(
+        content: Text('No one has signed in.'),
+      ));
+      return;
+    }
+    await GetxFire.signOut();
+
+    final String uid = user.uid;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('$uid has successfully signed out.'),
+    ));
+  },
+);
 ```
 
-##### Get Lottie Assets Available
+#### Get Lottie Assets Available
 ```
 GetxFire.lottiePath.<functions>
 ```
+We can get default lottie animation assets,
+such as : `THINKING`, `COMING_SOON`, `SEARCH_FILES`, `SAD_HEART`, `NO_ACTIVITY`, `MULTI_TASKING`, `IMAGE_ICON`, `EMPTY_BOX`, and `COFFEE_FAVORITE`
+```
+class LottiePath {
+  final THINKING = "assets/lottie/thinking.json";
+  final COMING_SOON = "assets/lottie/coming-soon.json";
+  final SEARCH_FILES = "assets/lottie/search-files.json";
+  final SAD_HEART = "assets/lottie/sad-heart.json";
+  final NO_ACTIVITY = "assets/lottie/no-activity.json";
+  final MULTI_TASKING = "assets/lottie/multi-tasking.json";
+  final IMAGE_ICON = "assets/lottie/image-icon.json";
+  final EMPTY_BOX = "assets/lottie/empty-box.json";
+  final COFFEE_FAVORITE = "assets/lottie/coffee-favorite.json";
+}
+```
+Example :
+```
+GetxFire.lottiePath.THINKING
+```
 
-##### Loading Progress Bar
+#### Loading Progress Bar
 ```
 GetxFire.progressHud.<functions>
 ```
-##### Converter Date, etc.
+Example :
+```
+// This for show loading progress bar
+GetxFire.progressHud.show();
+
+// This for hide loading progress bar
+GetxFire.progressHud.hide();
+```
+#### Converter Date, etc.
 ```
 GetxFire.converter.<functions>
 ```
 
-##### Helper Scripts
+#### Helper Scripts
 ```
 GetxFire.helper.<functions>
 ```
 
-##### For Use FirebaseAuth.instance Services
+#### For Use FirebaseAuth.instance Services
 ```
 GetxFire.auth.<functions>
 ```
-##### For Use Firestore Services
+#### For Use Firestore Services
 ```
 GetxFire.firestore.<functions>
 ```
-##### For Use Storage Services
+#### For Use Storage Services
 ```
 GetxFire.storage.<functions>
 ```
 
-##### Login Anonymously
+#### Login Anonymously
 ```
 await GetxFire.signInAnonymously(
   onSuccess: (userCredential) {
@@ -166,7 +228,7 @@ await GetxFire.signInAnonymously(
   },
 );
 ```
-##### Login Email & Password
+#### Login Email & Password
 ```
 await GetxFire.signInWithEmailAndPassword(
   email: _emailController.text,
@@ -181,7 +243,7 @@ await GetxFire.signInWithEmailAndPassword(
   onError: (code, message) {},
 );
 ```
-##### Login With Google
+#### Login With Google
 ```
 await GetxFire.signInWithGoogle(
   onSuccess: (userCredential) {
