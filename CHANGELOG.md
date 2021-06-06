@@ -1,3 +1,9 @@
+## 0.1.5 - Updates (6 June 2021)
+
+- Added `GetxFire.helper` for `Helper`.
+- Included by `launchURL()`,  `copyText()`, `stringTag()`, and `searchIndex()`
+- Updated Readme File.
+
 ## 0.1.4 - Updates (2 June 2021)
 
 - Fixed `GetxFire.converter`.

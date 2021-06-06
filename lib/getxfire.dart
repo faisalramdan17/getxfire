@@ -20,6 +20,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_web_browser/flutter_web_browser.dart';
 
 // import 'dart:convert';
 // import 'dart:io';
@@ -51,6 +52,7 @@ part 'src/progress_hub.dart';
 part 'src/ex_button.dart';
 part 'src/lottie_path.dart';
 part 'src/converter_helper.dart';
+part 'src/helper.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -93,6 +95,10 @@ class GetxFire {
   static ConverterHelper get converter => ConverterHelper();
 
   ///
+  /// Returns an instance using the default [Helper].
+  static Helper get helper => Helper();
+
+  ///
   /// Returns the current [User] if they are currently signed-in, or `null` if
   /// not.
   ///
@@ -123,7 +129,6 @@ class GetxFire {
     // this.openProfile = openProfile;
     // this.enableNotification = enableNotification;
     // this.firebaseServerToken = firebaseServerToken;
-
     /// Initialize settings.
     ///
     /// Note. it must be called before firebase init.
