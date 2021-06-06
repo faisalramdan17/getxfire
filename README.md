@@ -110,18 +110,80 @@ await GetxFire.init();
 #### Usage
 
 ##### Open Dialog
+Will popup success message  :
 ```
-GetxFire.openDialog.<functions>
+GetxFire.openDialog.messageSuccess("Create User successfully!");
+```
+Will popup error message :
+```
+GetxFire.openDialog.messageError("Failed to Create User!");
+```
+Will popup info message :
+```
+GetxFire.openDialog.info(
+  lottiePath: GetxFire.lottiePath.COMING_SOON,
+  lottiePadding: EdgeInsets.only(top: 50),
+);
+```
+Will popup message with yes and no confirm button :
+```
+GetxFire.openDialog.confirm(
+  content: "Are you sure to sign out?",
+  lottiePath: GetxFire.lottiePath.THINKING, // lottiePath: "assets/lottie/coffee-favorite.json",
+  onYesClicked: () async {
+    final User user = GetxFire.currentUser;
+    if (user == null) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(
+        content: Text('No one has signed in.'),
+      ));
+      return;
+    }
+    await GetxFire.signOut();
+
+    final String uid = user.uid;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('$uid has successfully signed out.'),
+    ));
+  },
+);
 ```
 
 ##### Get Lottie Assets Available
 ```
 GetxFire.lottiePath.<functions>
 ```
+We can get default lottie animation assets,
+such as : `THINKING`, `COMING_SOON`, `SEARCH_FILES`, `SAD_HEART`, `NO_ACTIVITY`, `MULTI_TASKING`, `IMAGE_ICON`, `EMPTY_BOX`, and `COFFEE_FAVORITE`
+```
+class LottiePath {
+  final THINKING = "assets/lottie/thinking.json";
+  final COMING_SOON = "assets/lottie/coming-soon.json";
+  final SEARCH_FILES = "assets/lottie/search-files.json";
+  final SAD_HEART = "assets/lottie/sad-heart.json";
+  final NO_ACTIVITY = "assets/lottie/no-activity.json";
+  final MULTI_TASKING = "assets/lottie/multi-tasking.json";
+  final IMAGE_ICON = "assets/lottie/image-icon.json";
+  final EMPTY_BOX = "assets/lottie/empty-box.json";
+  final COFFEE_FAVORITE = "assets/lottie/coffee-favorite.json";
+}
+```
+Example :
+```
+GetxFire.lottiePath.THINKING
+```
 
 ##### Loading Progress Bar
 ```
 GetxFire.progressHud.<functions>
+```
+Example :
+```
+// This for show loading progress bar
+GetxFire.progressHud.show();
+
+// This for hide loading progress bar
+GetxFire.progressHud.hide();
 ```
 ##### Converter Date, etc.
 ```
