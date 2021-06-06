@@ -149,55 +149,55 @@ GetxFire.storage.<functions>
 ##### Login Anonymously
 ```
 await GetxFire.signInAnonymously(
-      onSuccess: (userCredential) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-                'Signed in Anonymously as user ${userCredential.user.uid}'),
-          ),
-        );
-      },
-      onError: (code, message) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Failed to sign in Anonymously\n$message'),
-          ),
-        );
-      },
+  onSuccess: (userCredential) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+            'Signed in Anonymously as user ${userCredential.user.uid}'),
+      ),
     );
+  },
+  onError: (code, message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Failed to sign in Anonymously\n$message'),
+      ),
+    );
+  },
+);
 ```
 ##### Login Email & Password
 ```
 await GetxFire.signInWithEmailAndPassword(
-      email: _emailController.text,
-      password: _passwordController.text,
-      onSuccess: (userCredential) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('${userCredential.user.email} signed in'),
-          ),
-        );
-      },
-      onError: (code, message) {},
+  email: _emailController.text,
+  password: _passwordController.text,
+  onSuccess: (userCredential) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('${userCredential.user.email} signed in'),
+      ),
     );
+  },
+  onError: (code, message) {},
+);
 ```
 ##### Login With Google
 ```
-    await GetxFire.signInWithGoogle(
-      onSuccess: (userCredential) {
-        final user = userCredential.user;
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Sign In ${user.uid} with Google'),
-        ));
-      },
-      onError: (code, message) {
-        // ScaffoldMessenger.of(context).showSnackBar(
-        //   SnackBar(
-        //     content: Text('Failed to sign in with Google: $message'),
-        //   ),
-        // );
-      },
-    );
+await GetxFire.signInWithGoogle(
+  onSuccess: (userCredential) {
+    final user = userCredential.user;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('Sign In ${user.uid} with Google'),
+    ));
+  },
+  onError: (code, message) {
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(
+    //     content: Text('Failed to sign in with Google: $message'),
+    //   ),
+    // );
+  },
+);
 ```
 
 # References
