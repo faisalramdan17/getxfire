@@ -1,6 +1,6 @@
 name: getxfire
 description: A Flutter Package that implemented firebase services with getx package.
-version: 0.1.4
+version: 0.1.5
 homepage: https://github.com/faisalramdan17/getxfire/wiki
 repository: https://github.com/faisalramdan17/getxfire
 
@@ -37,6 +37,7 @@ dependencies:
   image_cropper: ^1.4.0
   flutter_animated_dialog: ^2.0.0
   flutter_spinkit: ^5.0.0
+  flutter_web_browser: ^0.14.0
   # flutter_image_compress: ^1.0.0
   # permission_handler: ^8.0.0+2
   # path: ^1.8.0

@@ -235,6 +235,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_browser:
+    dependency: transitive
+    description:
+      name: flutter_web_browser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.14.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -260,7 +267,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.4"
+    version: "0.1.5"
   google_sign_in:
     dependency: "direct main"
     description:

@@ -85,6 +85,121 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 - Fully Customizable
   - GetxFire package does not involve in any of part application's login or UI. It is completely separated from the app. Thus, it's highly customizable.
 
+# Getting Started
+
+#### Installation
+Install the library from pub:
+```
+dependencies:
+  getxfire: <latest-version>
+```
+
+
+#### Import the library
+```
+import 'package:getxfire/getxfire.dart';
+```
+
+#### Init GetxFire
+Add this inside `main()` function at `main.dart` file:
+```
+WidgetsFlutterBinding.ensureInitialized();
+await GetxFire.init();
+```
+
+#### Usage
+
+##### Open Dialog
+```
+GetxFire.openDialog.<functions>
+```
+
+##### Get Lottie Assets Available
+```
+GetxFire.lottiePath.<functions>
+```
+
+##### Loading Progress Bar
+```
+GetxFire.progressHud.<functions>
+```
+##### Converter Date, etc.
+```
+GetxFire.converter.<functions>
+```
+
+##### Helper Scripts
+```
+GetxFire.helper.<functions>
+```
+
+##### For Use FirebaseAuth.instance Services
+```
+GetxFire.auth.<functions>
+```
+##### For Use Firestore Services
+```
+GetxFire.firestore.<functions>
+```
+##### For Use Storage Services
+```
+GetxFire.storage.<functions>
+```
+
+##### Login Anonymously
+```
+await GetxFire.signInAnonymously(
+  onSuccess: (userCredential) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+            'Signed in Anonymously as user ${userCredential.user.uid}'),
+      ),
+    );
+  },
+  onError: (code, message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Failed to sign in Anonymously\n$message'),
+      ),
+    );
+  },
+);
+```
+##### Login Email & Password
+```
+await GetxFire.signInWithEmailAndPassword(
+  email: _emailController.text,
+  password: _passwordController.text,
+  onSuccess: (userCredential) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('${userCredential.user.email} signed in'),
+      ),
+    );
+  },
+  onError: (code, message) {},
+);
+```
+##### Login With Google
+```
+await GetxFire.signInWithGoogle(
+  onSuccess: (userCredential) {
+    final user = userCredential.user;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('Sign In ${user.uid} with Google'),
+    ));
+  },
+  onError: (code, message) {
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(
+    //     content: Text('Failed to sign in with Google: $message'),
+    //   ),
+    // );
+  },
+);
+```
+
 # References
 
 - [GetxFire Package](https://github.com/faisalramdan17/getxfire) - This Package.
