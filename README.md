@@ -87,7 +87,7 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 
 # Getting Started
 
-#### Installation
+### Installation
 Install the library from pub:
 ```
 dependencies:
@@ -95,21 +95,21 @@ dependencies:
 ```
 
 
-#### Import the library
+### Import the library
 ```
 import 'package:getxfire/getxfire.dart';
 ```
 
-#### Init GetxFire
+### Init GetxFire
 Add this inside `main()` function at `main.dart` file:
 ```
 WidgetsFlutterBinding.ensureInitialized();
 await GetxFire.init();
 ```
 
-#### Usage
+### Usage
 
-##### Open Dialog
+#### Open Dialog
 Will popup success message  :
 ```
 GetxFire.openDialog.messageSuccess("Create User successfully!");
@@ -149,7 +149,7 @@ GetxFire.openDialog.confirm(
 );
 ```
 
-##### Get Lottie Assets Available
+#### Get Lottie Assets Available
 ```
 GetxFire.lottiePath.<functions>
 ```
@@ -173,7 +173,7 @@ Example :
 GetxFire.lottiePath.THINKING
 ```
 
-##### Loading Progress Bar
+#### Loading Progress Bar
 ```
 GetxFire.progressHud.<functions>
 ```
@@ -185,30 +185,30 @@ GetxFire.progressHud.show();
 // This for hide loading progress bar
 GetxFire.progressHud.hide();
 ```
-##### Converter Date, etc.
+#### Converter Date, etc.
 ```
 GetxFire.converter.<functions>
 ```
 
-##### Helper Scripts
+#### Helper Scripts
 ```
 GetxFire.helper.<functions>
 ```
 
-##### For Use FirebaseAuth.instance Services
+#### For Use FirebaseAuth.instance Services
 ```
 GetxFire.auth.<functions>
 ```
-##### For Use Firestore Services
+#### For Use Firestore Services
 ```
 GetxFire.firestore.<functions>
 ```
-##### For Use Storage Services
+#### For Use Storage Services
 ```
 GetxFire.storage.<functions>
 ```
 
-##### Login Anonymously
+#### Login Anonymously
 ```
 await GetxFire.signInAnonymously(
   onSuccess: (userCredential) {
@@ -228,7 +228,7 @@ await GetxFire.signInAnonymously(
   },
 );
 ```
-##### Login Email & Password
+#### Login Email & Password
 ```
 await GetxFire.signInWithEmailAndPassword(
   email: _emailController.text,
@@ -243,7 +243,7 @@ await GetxFire.signInWithEmailAndPassword(
   onError: (code, message) {},
 );
 ```
-##### Login With Google
+#### Login With Google
 ```
 await GetxFire.signInWithGoogle(
   onSuccess: (userCredential) {
