@@ -1,3 +1,9 @@
+## 0.1.7 - Updates (8 June 2021)
+
+- Added `GetxFire.userChanges()` for `user current changes` stream.
+- Added `GetxFire.userStateChanges(setState)` for `user current state changes` streaming automatically.
+- Updated Readme File.
+
 ## 0.1.6 - Updates (7 June 2021)
 
 - Updated Readme File for detail documentation.

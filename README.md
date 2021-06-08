@@ -94,7 +94,6 @@ dependencies:
   getxfire: <latest-version>
 ```
 
-
 ### Import the library
 ```
 import 'package:getxfire/getxfire.dart';
@@ -266,15 +265,21 @@ await GetxFire.signInWithGoogle(
 ```
 GetxFire.currentUser
 ```
+example :
+```
+User user = GetxFire.currentUser;
+```
 
 #### For Get Current User Changes
+Add this inside `void initState()` function at statfullwidget :
 ```
 GetxFire.userChanges().listen((event) => setState(() {}));
 ```
 
-#### For Get Current User Changes State
+#### For Get Current User State Changes 
+Add this inside `void initState()` function at statfullwidget :
 ```
-GetxFire.userChanges().listen((event) => setState(() {}));
+GetxFire.userStateChanges(setState);
 ```
 
 # References

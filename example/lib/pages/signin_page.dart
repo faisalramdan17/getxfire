@@ -31,7 +31,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   void initState() {
     // GetxFire.userChanges().listen((event) => setState(() {}));
-    GetxFire.useStateChanges();
+    GetxFire.userStateChanges(setState);
     super.initState();
   }
 

@@ -126,11 +126,9 @@ class GetxFire {
   /// instead use [authStateChanges], [idTokenChanges] or [userChanges] to
   /// subscribe to updates.
   ///
-  static StreamSubscription<User?> useStateChanges(
-          [Function(void)? setState]) =>
-      _auth
-          .userChanges()
-          .listen((event) => setState == null ? null : setState(() {}));
+  static StreamSubscription<User?> userStateChanges(
+          void Function(void Function()) setState) =>
+      _auth.userChanges().listen((event) => setState(() {}));
 
   ///
   ///Initializes a new [FirebaseApp] instance by [name] and [options] and returns the created app. This method should be called before any usage of FlutterFire plugins.
