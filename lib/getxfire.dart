@@ -109,6 +109,30 @@ class GetxFire {
   static User? get currentUser => _auth.currentUser;
 
   ///
+  /// Returns the current [User] Changes if they are currently signed-in, or `null` if
+  /// not.
+  ///
+  /// You should not use this getter to determine the users current state,
+  /// instead use [authStateChanges], [idTokenChanges] or [userChanges] to
+  /// subscribe to updates.
+  ///
+  static Stream<User?> userChanges() => _auth.userChanges();
+
+  ///
+  /// Returns the current [User] State Changes if they are currently signed-in, or `null` if
+  /// not.
+  ///
+  /// You should not use this getter to determine the users current state,
+  /// instead use [authStateChanges], [idTokenChanges] or [userChanges] to
+  /// subscribe to updates.
+  ///
+  static StreamSubscription<User?> useStateChanges(
+          [Function(void)? setState]) =>
+      _auth
+          .userChanges()
+          .listen((event) => setState == null ? null : setState(() {}));
+
+  ///
   ///Initializes a new [FirebaseApp] instance by [name] and [options] and returns the created app. This method should be called before any usage of FlutterFire plugins.
   /// The default app instance cannot be initialized here and should be created using the platform Firebase integration.
   ///

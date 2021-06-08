@@ -262,6 +262,21 @@ await GetxFire.signInWithGoogle(
 );
 ```
 
+#### For Get Current User
+```
+GetxFire.currentUser
+```
+
+#### For Get Current User Changes
+```
+GetxFire.userChanges().listen((event) => setState(() {}));
+```
+
+#### For Get Current User Changes State
+```
+GetxFire.userChanges().listen((event) => setState(() {}));
+```
+
 # References
 
 - [GetxFire Package](https://github.com/faisalramdan17/getxfire) - This Package.

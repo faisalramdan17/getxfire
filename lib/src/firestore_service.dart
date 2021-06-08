@@ -36,7 +36,7 @@ class FirestoreService {
 
   Future<bool> updateData({
     required String collection,
-    required String id,
+    required String? id,
     required Map<String, dynamic> data,
   }) async {
     try {

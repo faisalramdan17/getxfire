@@ -30,7 +30,8 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   @override
   void initState() {
-    GetxFire.auth.userChanges().listen((event) => setState(() {}));
+    // GetxFire.userChanges().listen((event) => setState(() {}));
+    GetxFire.useStateChanges();
     super.initState();
   }
 
