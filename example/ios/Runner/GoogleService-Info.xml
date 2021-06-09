@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>197553914683-b9dcl6t48njn540hcc0f6904i4t4arfn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.197553914683-b9dcl6t48njn540hcc0f6904i4t4arfn</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>197553914683-7p9qsf6ve6stid4ds4o8uuadsqpc0fue.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDh3WJB42e7Mraye1lo7upU29RxWssABg4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>197553914683</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>id.codingyourlife.getxfireexample</string>
+	<key>PROJECT_ID</key>
+	<string>getxfire</string>
+	<key>STORAGE_BUCKET</key>
+	<string>getxfire.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:197553914683:ios:e1c374f416b18758fbad1e</string>
+</dict>
+</plist>
