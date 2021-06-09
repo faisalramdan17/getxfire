@@ -22,6 +22,7 @@ import 'package:lottie/lottie.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
 
+export 'package:get/get.dart';
 export 'package:image_cropper/image_cropper.dart';
 export 'package:firebase_core/firebase_core.dart';
 export 'package:firebase_auth/firebase_auth.dart';

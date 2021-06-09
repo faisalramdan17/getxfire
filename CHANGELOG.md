@@ -1,3 +1,7 @@
+## 0.1.9 - Updates (9 June 2021)
+
+- Fixed bugs
+
 ## 0.1.8 - Updates (9 June 2021)
 
 - Updated Dependencies
