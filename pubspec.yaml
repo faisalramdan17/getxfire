@@ -1,6 +1,6 @@
 name: getxfire
 description: A Flutter Package that implemented firebase services with getx package.
-version: 0.1.7
+version: 0.1.8
 homepage: https://github.com/faisalramdan17/getxfire/wiki
 repository: https://github.com/faisalramdan17/getxfire
 
@@ -15,13 +15,19 @@ dependencies:
     sdk: flutter
 
   # Firebase Packages
-  firebase_core: ^1.2.0
-  firebase_auth: ^1.2.0
-  cloud_firestore: ^2.2.0
-  firebase_storage: ^8.1.0
+  # firebase_core: ^1.2.0
+  firebase_core: ^1.2.1
+  # firebase_auth: ^1.2.0
+  firebase_auth: ^1.3.0
+  # cloud_firestore: ^2.2.0
+  cloud_firestore: ^2.2.1
+  # firebase_storage: ^8.1.0
+  firebase_storage: ^8.1.1
   # firebase_messaging: ^9.1.4 # Coming Soon
-  firebase_dynamic_links: ^2.0.4
-  firebase_analytics: ^8.1.0
+  # firebase_dynamic_links: ^2.0.4
+  firebase_dynamic_links: ^2.0.5
+  # firebase_analytics: ^8.1.0
+  firebase_analytics: ^8.1.1
 
   # SignIn Packages  
   google_sign_in: ^5.0.4

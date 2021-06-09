@@ -1,3 +1,9 @@
+## 0.1.8 - Updates (9 June 2021)
+
+- Updated Dependencies
+- Fixed bugs
+- Updated readme file.
+
 ## 0.1.7 - Updates (8 June 2021)
 
 - Added `GetxFire.userChanges()` for `user current changes` stream.

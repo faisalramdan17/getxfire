@@ -55,7 +55,7 @@ class FirestoreService {
     }
   }
 
-  Future<List<QueryDocumentSnapshot<Object?>?>?> getData(
+  Future<List<QueryDocumentSnapshot<Object?>>> getData(
       {required String collection, String? ownerUID}) async {
     try {
       Query _query = _firestore.collection(collection);
@@ -77,7 +77,7 @@ class FirestoreService {
     }
   }
 
-  Future<List<QueryDocumentSnapshot?>?> searchData({
+  Future<List<QueryDocumentSnapshot>> searchData({
     required String collection,
     String? ownerUID,
     required String search,
@@ -105,7 +105,7 @@ class FirestoreService {
     }
   }
 
-  Future<DocumentSnapshot?> getDetail({
+  Future<DocumentSnapshot> getDetail({
     required String collection,
     required String id,
   }) async {

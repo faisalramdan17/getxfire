@@ -4,6 +4,7 @@ description: Demonstrates how to use the getxfire plugin.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -26,9 +27,9 @@ dependencies:
 
   get: ^4.1.4
   font_awesome_flutter: ^9.0.0
-  country_code_picker: ^2.0.1
-  google_sign_in: ^5.0.4
   flutter_signin_button: ^2.0.0
+  # country_code_picker: ^2.0.1
+  # google_sign_in: ^5.0.4
 
 dev_dependencies:
   flutter_test:
