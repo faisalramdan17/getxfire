@@ -1,6 +1,6 @@
 name: getxfire
 description: A Flutter Package that implemented firebase services with getx package.
-version: 0.1.10
+version: 0.1.11
 homepage: https://github.com/faisalramdan17/getxfire/wiki
 repository: https://github.com/faisalramdan17/getxfire
 
@@ -75,6 +75,8 @@ flutter:
         package: id.codingyourlife.getxfire
         pluginClass: GetxfirePlugin
       ios:
+        pluginClass: GetxfirePlugin
+      macos:
         pluginClass: GetxfirePlugin
       web:
         pluginClass: GetxfireWeb

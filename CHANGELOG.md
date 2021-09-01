@@ -1,8 +1,11 @@
+## 0.1.11 - Updates (2 September 2021)
+
+- macOS Support
+
 ## 0.1.10 - Updates (2 September 2021)
 
 - Fixed bugs
 - iOS Support
-- macOS Support
 
 ## 0.1.9 - Updates (9 June 2021)
 
