@@ -181,6 +181,8 @@ class GetxFire {
       FirebaseFirestore.instance.settings =
           Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
 
+      // FirebaseFirestore.instance.useFirestoreEmulator("local", 8080);
+
       // usersCol = FirebaseFirestore.instance.collection('users');
       // postsCol = FirebaseFirestore.instance.collection('posts');
 

@@ -318,7 +318,7 @@ class _LikesState extends State<Likes> {
       });
 
       // Update with the real count once the transaction has completed.
-      setState(() => _likes = newLikes);
+      if (this.mounted) setState(() => _likes = newLikes);
     } catch (e, s) {
       print(s);
       print('Failed to update likes for document! $e');

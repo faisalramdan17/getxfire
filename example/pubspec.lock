@@ -260,7 +260,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.9"
+    version: "0.1.10"
   google_sign_in:
     dependency: transitive
     description:
