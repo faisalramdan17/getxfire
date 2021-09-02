@@ -8,7 +8,8 @@ class ProgressHud extends PopupRoute {
       {bool isSucceess = false, isHideIcon = false}) async {
     try {
       if (_currentHud != null) {
-        _currentHud?.navigator?.pop();
+        // _currentHud?.navigator?.pop();
+        Navigator.pop(Get.context!);
       }
       ProgressHud hud = ProgressHud();
       hud.message = message;
@@ -17,7 +18,8 @@ class ProgressHud extends PopupRoute {
       _currentHud = hud;
       Navigator.push(Get.context!, hud);
       Future.delayed(hud.delayed).then((val) {
-        _currentHud?.navigator?.pop();
+        // _currentHud?.navigator?.pop();
+        Navigator.pop(Get.context!);
         _currentHud = null;
       });
     } catch (e) {
@@ -28,7 +30,8 @@ class ProgressHud extends PopupRoute {
   Future<void> showUpCommingMessage() async {
     try {
       if (_currentHud != null) {
-        _currentHud?.navigator?.pop();
+        // _currentHud?.navigator?.pop();
+        Navigator.pop(Get.context!);
       }
       ProgressHud hud = ProgressHud();
       hud.message = "Coming Soon, still on progress!  😇🙏";
@@ -36,7 +39,8 @@ class ProgressHud extends PopupRoute {
       _currentHud = hud;
       Navigator.push(Get.context!, hud);
       Future.delayed(Duration(milliseconds: 1700)).then((val) {
-        _currentHud?.navigator?.pop();
+        // _currentHud?.navigator?.pop();
+        Navigator.pop(Get.context!);
         _currentHud = null;
       });
     } catch (e) {
@@ -52,7 +56,8 @@ class ProgressHud extends PopupRoute {
   Future<void> show() async {
     try {
       if (_currentHud != null) {
-        _currentHud?.navigator?.pop();
+        // _currentHud?.navigator?.pop();
+        Navigator.pop(Get.context!);
       }
       ProgressHud hud = ProgressHud();
       _currentHud = hud;
@@ -68,7 +73,8 @@ class ProgressHud extends PopupRoute {
   * */
   Future<void> hide() async {
     try {
-      _currentHud?.navigator?.pop();
+      Navigator.pop(Get.context!);
+      // _currentHud?.navigator?.pop(Get.context!);
       _currentHud = null;
     } catch (e) {
       _currentHud = null;

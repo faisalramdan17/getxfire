@@ -39,6 +39,7 @@ class AuthExampleApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'GetxFire Example App',
+      debugShowCheckedModeBanner: false,
       // theme: ThemeData.dark(),
       home: Scaffold(
         body: AuthTypeSelector(),

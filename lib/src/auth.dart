@@ -6,8 +6,8 @@ class Auth {
     required String password,
     required bool isSuccessDialog,
     required bool isErrorDialog,
-    Map<String, dynamic>? data,
-    Map<String, dynamic>? public,
+    // Map<String, dynamic>? data,
+    // Map<String, dynamic>? public,
     Function(UserCredential? userCredential)? onSuccess,
     Function(String? code, String? message)? onError,
   }) async {
@@ -63,8 +63,8 @@ class Auth {
     required String password,
     required bool isSuccessDialog,
     required bool isErrorDialog,
-    Map<String, dynamic>? data,
-    Map<String, dynamic>? public,
+    // Map<String, dynamic>? data,
+    // Map<String, dynamic>? public,
     Function(UserCredential? userCredential)? onSuccess,
     Function(String? code, String? message)? onError,
   }) async {
@@ -95,8 +95,8 @@ class Auth {
   static Future<UserCredential?>? signInWithGoogle({
     required bool isSuccessDialog,
     required bool isErrorDialog,
-    Map<String, dynamic>? data,
-    Map<String, dynamic>? public,
+    // Map<String, dynamic>? data,
+    // Map<String, dynamic>? public,
     Function(UserCredential? userCredential)? onSuccess,
     Function(String? code, String? message)? onError,
   }) async {

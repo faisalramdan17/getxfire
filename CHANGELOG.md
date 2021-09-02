@@ -1,8 +1,13 @@
-## 0.1.11 - Updates (2 September 2021)
+## 0.2.0 - Updates (2 September 2021)
+
+- Fixed ProgressHud bugs. hide() function not working
+- Upgraded dependencies package
+
+## 0.1.11 - Updates (1 September 2021)
 
 - macOS Support
 
-## 0.1.10 - Updates (2 September 2021)
+## 0.1.10 - Updates (1 September 2021)
 
 - Fixed bugs
 - iOS Support

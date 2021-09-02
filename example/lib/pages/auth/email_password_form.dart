@@ -81,14 +81,15 @@ class EmailPasswordFormState extends State<EmailPasswordForm> {
     return await GetxFire.signInWithEmailAndPassword(
       email: _emailController.text,
       password: _passwordController.text,
-      onSuccess: (userCredential) {
+      onSuccess: (userCredential) async {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('${userCredential.user.email} signed in'),
           ),
         );
       },
-      onError: (code, message) {
+      onError: (code, message) async {
+        // await GetxFire.progressHud.hide();
         // ScaffoldMessenger.of(context).showSnackBar(
         //   SnackBar(
         //     content: Text('Failed to sign in with Email & Password\n$message'),
