@@ -1,6 +1,10 @@
+## 0.2.1 - Updates (4 September 2021)
+
+- Added error function parameter in `FirestoreService`.
+
 ## 0.2.0 - Updates (2 September 2021)
 
-- Fixed ProgressHud bugs. hide() function not working
+- Fixed ProgressHud bugs. `hide()` function not working
 - Upgraded dependencies package
 
 ## 0.1.11 - Updates (1 September 2021)
