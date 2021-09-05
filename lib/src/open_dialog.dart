@@ -5,7 +5,7 @@ class OpenDialog {
 
   Future<void> messageSuccess(String message,
       {String? title, Duration? duration}) async {
-    await GetxFire.progressHud.hide();
+    await GetxFire.hideProgressHud();
 
     Get.snackbar(
       title ?? "Success",
@@ -23,7 +23,7 @@ class OpenDialog {
 
   Future<void> messageError(String message,
       {String? title, Duration? duration}) async {
-    await GetxFire.progressHud.hide();
+    await GetxFire.hideProgressHud();
     print("[ERROR] : ${message.toString()}");
 
     Get.snackbar(
@@ -82,7 +82,7 @@ class OpenDialog {
     Widget? customWidget,
     bool isBackAfterYes = true,
   }) async {
-    await GetxFire.progressHud.hide();
+    await GetxFire.hideProgressHud();
     return await showAnimatedDialog(
       context: Get.context!,
       barrierDismissible: true,

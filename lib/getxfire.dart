@@ -94,8 +94,12 @@ class GetxFire {
   static OpenDialog get openDialog => OpenDialog();
 
   ///
-  /// Returns an instance using the default [ProgressHud].
-  static ProgressHud get progressHud => ProgressHud();
+  /// Returns an instance using the default [ProgressHud.show()].
+  static Future<void> showProgressHud() => ProgressHud.show();
+
+  ///
+  /// Returns an instance using the default [ProgressHud.hide()].
+  static Future<void> hideProgressHud() => ProgressHud.hide();
 
   ///
   /// Returns an instance using the default [LottiePath].

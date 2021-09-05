@@ -1,3 +1,7 @@
+## 0.3.1 - Updates (5 September 2021)
+
+- Fixed `ProgressHud`. Instead by using `showProgressHud() ` and `hideProgressHud()`
+
 ## 0.2.1 - Updates (4 September 2021)
 
 - Added error function parameter in `FirestoreService`.

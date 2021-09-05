@@ -172,17 +172,15 @@ Example :
 GetxFire.lottiePath.THINKING
 ```
 
-#### Loading Progress Bar
-```
-GetxFire.progressHud.<functions>
-```
+#### Show and Hide Progress Bar
+
 Example :
 ```
 // This for show loading progress bar
-GetxFire.progressHud.show();
+GetxFire.showProgressHud();
 
 // This for hide loading progress bar
-GetxFire.progressHud.hide();
+GetxFire.hideProgressHud();
 ```
 #### Converter Date, etc.
 ```

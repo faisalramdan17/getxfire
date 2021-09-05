@@ -4,12 +4,11 @@ class ProgressHud extends PopupRoute {
   /*
   * Show message.
   * */
-  Future<void> showMessage(String message,
+  static Future<void> showMessage(String message,
       {bool isSucceess = false, isHideIcon = false}) async {
     try {
       if (_currentHud != null) {
-        // _currentHud?.navigator?.pop();
-        Navigator.pop(Get.context!);
+        _currentHud!.navigator!.pop();
       }
       ProgressHud hud = ProgressHud();
       hud.message = message;
@@ -18,8 +17,7 @@ class ProgressHud extends PopupRoute {
       _currentHud = hud;
       Navigator.push(Get.context!, hud);
       Future.delayed(hud.delayed).then((val) {
-        // _currentHud?.navigator?.pop();
-        Navigator.pop(Get.context!);
+        _currentHud!.navigator!.pop();
         _currentHud = null;
       });
     } catch (e) {
@@ -27,11 +25,10 @@ class ProgressHud extends PopupRoute {
     }
   }
 
-  Future<void> showUpCommingMessage() async {
+  static Future<void> showUpCommingMessage() async {
     try {
       if (_currentHud != null) {
-        // _currentHud?.navigator?.pop();
-        Navigator.pop(Get.context!);
+        _currentHud!.navigator!.pop();
       }
       ProgressHud hud = ProgressHud();
       hud.message = "Coming Soon, still on progress!  😇🙏";
@@ -39,8 +36,7 @@ class ProgressHud extends PopupRoute {
       _currentHud = hud;
       Navigator.push(Get.context!, hud);
       Future.delayed(Duration(milliseconds: 1700)).then((val) {
-        // _currentHud?.navigator?.pop();
-        Navigator.pop(Get.context!);
+        _currentHud?.navigator?.pop();
         _currentHud = null;
       });
     } catch (e) {
@@ -53,11 +49,10 @@ class ProgressHud extends PopupRoute {
   * when you want to do anything, you can call this show.
   * for example： begin network request
   * */
-  Future<void> show() async {
+  static Future<void> show() async {
     try {
       if (_currentHud != null) {
-        // _currentHud?.navigator?.pop();
-        Navigator.pop(Get.context!);
+        _currentHud!.navigator!.pop();
       }
       ProgressHud hud = ProgressHud();
       _currentHud = hud;
@@ -71,10 +66,11 @@ class ProgressHud extends PopupRoute {
   * hide hud
   * when you complete something,you can call this hide to hide hud.
   * */
-  Future<void> hide() async {
+  static Future<void> hide() async {
     try {
-      Navigator.pop(Get.context!);
-      // _currentHud?.navigator?.pop(Get.context!);
+      if (_currentHud != null) {
+        _currentHud!.navigator!.pop();
+      }
       _currentHud = null;
     } catch (e) {
       _currentHud = null;
@@ -105,7 +101,7 @@ class ProgressHud extends PopupRoute {
 
   String loadingMessage = 'loading ...';
 
-  ProgressHud? _currentHud;
+  static ProgressHud? _currentHud;
 
   @override
   Color? get barrierColor => null;
