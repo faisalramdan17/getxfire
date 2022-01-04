@@ -35,7 +35,7 @@ class ProgressHud extends PopupRoute {
       hud.isUpComming = true;
       _currentHud = hud;
       Navigator.push(Get.context!, hud);
-      Future.delayed(Duration(milliseconds: 1700)).then((val) {
+      Future.delayed(const Duration(milliseconds: 1700)).then((val) {
         _currentHud?.navigator?.pop();
         _currentHud = null;
       });
@@ -84,15 +84,15 @@ class ProgressHud extends PopupRoute {
   bool isUpComming = false;
   Color progressColor = Colors.grey;
   Color progressBackgroundColor = Colors.white;
-  Color coverColor = Color.fromRGBO(0, 0, 0, 0.4);
-  Duration delayed = Duration(milliseconds: 3000);
-  TextStyle loadingTextStyle = TextStyle(
+  Color coverColor = const Color.fromRGBO(0, 0, 0, 0.4);
+  Duration delayed = const Duration(milliseconds: 3000);
+  TextStyle loadingTextStyle = const TextStyle(
       fontSize: 13.0,
       color: Colors.black87,
       fontWeight: FontWeight.normal,
       fontFamily: 'Sans',
       decoration: TextDecoration.none);
-  TextStyle messageTextStyle = TextStyle(
+  TextStyle messageTextStyle = const TextStyle(
       fontSize: 14.0,
       color: Colors.black87,
       fontWeight: FontWeight.w500,
@@ -119,7 +119,7 @@ class ProgressHud extends PopupRoute {
   Widget buildPage(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation) {
     return Container(
-      color: Color.fromRGBO(0, 0, 0, 0.4),
+      color: const Color.fromRGBO(0, 0, 0, 0.4),
       child: Center(
         child: _getProgress(),
       ),
@@ -138,9 +138,9 @@ class ProgressHud extends PopupRoute {
       return Container(
           width: 100.0,
           height: 100.0,
-          decoration: new BoxDecoration(
+          decoration: const BoxDecoration(
               color: Colors.white,
-              borderRadius: new BorderRadius.all(new Radius.circular(10))),
+              borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Stack(
             children: <Widget>[
               // Center(
@@ -152,23 +152,21 @@ class ProgressHud extends PopupRoute {
               //   //     valueColor: new AlwaysStoppedAnimation(progressColor)),
               // ),
               Center(
-                child: Container(
-                  child: SpinKitFadingCube(
-                    color: Get.context?.theme.primaryColor,
-                    duration: Duration(milliseconds: 1500),
-                    size: 35.0,
-                  ),
+                child: SpinKitFadingCube(
+                  color: Get.context?.theme.primaryColor,
+                  duration: const Duration(milliseconds: 1500),
+                  size: 35.0,
                 ),
               )
             ],
           ));
     } else {
       return Container(
-        margin: EdgeInsets.all(20),
-        padding: EdgeInsets.all(20),
-        decoration: new BoxDecoration(
+        margin: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
             color: Colors.white,
-            borderRadius: new BorderRadius.all(new Radius.circular(10))),
+            borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -176,20 +174,20 @@ class ProgressHud extends PopupRoute {
             Padding(
               padding: EdgeInsets.only(right: isHideIcon ? 0 : 15.0),
               child: isHideIcon
-                  ? Container(
+                  ? const SizedBox(
                       height: 0,
                       width: 0,
                     )
                   : isUpComming
-                      ? Padding(
+                      ? const Padding(
                           padding: EdgeInsets.only(left: 5),
                           child: Icon(FontAwesomeIcons.cogs,
                               size: 20.0, color: Colors.blue),
                         )
                       : isSucceess
-                          ? Icon(FontAwesomeIcons.checkCircle,
+                          ? const Icon(FontAwesomeIcons.checkCircle,
                               size: 20.0, color: Colors.green)
-                          : Icon(FontAwesomeIcons.exclamation,
+                          : const Icon(FontAwesomeIcons.exclamation,
                               size: 20.0, color: Colors.red),
             ),
             Flexible(

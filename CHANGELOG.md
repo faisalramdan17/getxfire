@@ -1,3 +1,8 @@
+## 0.3.2 - Updates (4 Jan 2022)
+
+- Fixed buggs.
+- UI Updeted.
+
 ## 0.3.1 - Updates (5 September 2021)
 
 - Fixed `ProgressHud`. Instead by using `showProgressHud() ` and `hideProgressHud()`

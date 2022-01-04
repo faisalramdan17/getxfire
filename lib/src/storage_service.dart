@@ -11,8 +11,7 @@ class StorageService {
     if (imageToUpload == null) return null;
 
     try {
-      var imageFileName =
-          DateTime.now().millisecondsSinceEpoch.toString() + " - " + title;
+      var imageFileName = DateTime.now().toString() + " - " + title;
 
       final Reference firebaseStorageRef = FirebaseStorage.instance
           .ref()
@@ -43,10 +42,14 @@ class StorageService {
         // var url = downloadUrl.toString();
         var url = await res.ref.getDownloadURL();
 
-        // print("===== uploadTask.whenComplete ======");
-        // print("URL = ${url ?? ""}");
+        // debugPrint("===== uploadTask.whenComplete ======");
+        // debugPrint("URL = ${url ?? ""}");
+        // debugPrint("oldFileName = ${oldFileName ?? ""}");
 
-        await deleteFile(oldFileName!, fileType: fileType, folder: folder);
+        if (oldFileName != null) {
+          await deleteFile(oldFileName, fileType: fileType, folder: folder);
+        }
+
         return FileModel(
           url: url,
           filename: imageFileName,
@@ -67,7 +70,7 @@ class StorageService {
     required String folder,
   }) async {
     if (imageFileName != null && imageFileName != "") {
-      print("Ref = $fileType/$folder/$imageFileName");
+      debugPrint("Ref = $fileType/$folder/$imageFileName");
       final Reference firebaseStorageRef = FirebaseStorage.instance
           .ref()
           .child(fileType)
@@ -78,14 +81,15 @@ class StorageService {
         await firebaseStorageRef.delete();
         return true;
       } on FirebaseException catch (e) {
-        print("CODE = ${e.code}");
+        debugPrint("CODE = ${e.code}");
         if (e.code == 'object-not-found') return true;
 
         GetxFire.openDialog.messageError(e.toString());
         return false;
       }
-    } else
+    } else {
       return false;
+    }
   }
 }
 
@@ -128,7 +132,7 @@ class StorageService {
 
 //   // if no file is selected then do nothing.
 //   if (file == null) throw UPLOAD_CANCELLED;
-//   // print('success: file picked: ${file.path}');
+//   // debugPrint('success: file picked: ${file.path}');
 
 //   final ref = FirebaseStorage.instance
 //       .ref(folder + '/' + getFilenameFromPath(file.path));
@@ -144,7 +148,7 @@ class StorageService {
 
 //   await task;
 //   final url = await ref.getDownloadURL();
-//   // print('DOWNLOAD URL : $url');
+//   // debugPrint('DOWNLOAD URL : $url');
 //   return url;
 // }
 

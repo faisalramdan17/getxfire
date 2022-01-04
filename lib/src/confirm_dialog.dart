@@ -10,8 +10,8 @@ class ConfirmDialog extends StatelessWidget {
     this.labelRightButton,
     this.colorLeftButton,
     this.colorRightButton,
-    this.colorLeftTextButton,
-    this.colorRightTextButton,
+    this.colorLeftTextButton = Colors.black,
+    this.colorRightTextButton = Colors.white,
     this.fontSizeLeftButton,
     this.fontSizeRightButton,
     this.iconLeftButton,
@@ -48,7 +48,6 @@ class ConfirmDialog extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 15.0, top: 8),
                       child: Lottie.asset(
                         lottiePath!,
-                        package: "getxfire",
                         height: lottieHeight ?? 130,
                         fit: BoxFit.fitWidth,
                       ),
@@ -59,7 +58,7 @@ class ConfirmDialog extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Text(
                         title!,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
@@ -72,7 +71,7 @@ class ConfirmDialog extends StatelessWidget {
                           vertical: 15.0, horizontal: 8),
                       child: Text(
                         content!,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 17,
                         ),
                       ),
@@ -85,7 +84,8 @@ class ConfirmDialog extends StatelessWidget {
                       child: customWidget,
                     ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -94,10 +94,10 @@ class ConfirmDialog extends StatelessWidget {
                         onTap: onLeftPressed,
                         child: Container(
                           height: 45,
-                          color: colorLeftButton,
-                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
+                            color: colorLeftButton,
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(15),
                             ),
                             border: Border.all(
@@ -115,17 +115,16 @@ class ConfirmDialog extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Expanded(
                       child: InkWell(
                         onTap: onRightPressed,
                         child: Container(
                           height: 45,
-                          color: colorRightButton,
-                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
                           decoration: BoxDecoration(
-                            color: Get.theme.primaryColor,
-                            borderRadius: BorderRadius.all(
+                            color: colorRightButton ?? Get.theme.primaryColor,
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(15),
                             ),
                           ),

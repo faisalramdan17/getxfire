@@ -9,7 +9,13 @@ class FileModel {
 
   FileModel({this.url, this.filename, this.type, this.folder, this.updatedAt});
 
-  FileModel copyWith({String? url, String? filename, DateTime? updatedAt}) =>
+  FileModel copyWith({
+    String? url,
+    String? filename,
+    String? type,
+    String? folder,
+    DateTime? updatedAt,
+  }) =>
       FileModel(
         url: url ?? this.url,
         filename: filename ?? this.filename,
@@ -27,10 +33,10 @@ class FileModel {
   }
 
   Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "filename": filename == null ? null : filename,
-        "type": type == null ? null : type,
-        "folder": folder == null ? null : folder,
-        "updatedAt": updatedAt == null ? null : updatedAt,
+        "url": url,
+        "filename": filename,
+        "type": type,
+        "folder": folder,
+        "updatedAt": updatedAt,
       };
 }

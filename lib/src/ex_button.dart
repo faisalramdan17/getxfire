@@ -39,7 +39,7 @@ class ExButton extends StatelessWidget {
                 Text(
                   labelButton ?? "-",
                   style: TextStyle(
-                      color: colorText ?? ThemeData().accentColor,
+                      color: colorText ?? ThemeData().colorScheme.primary,
                       fontSize: fontSize ?? 15,
                       fontWeight: FontWeight.w500),
                 ),

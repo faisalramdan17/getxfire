@@ -5,37 +5,37 @@ class OpenDialog {
 
   Future<void> messageSuccess(String message,
       {String? title, Duration? duration}) async {
-    await GetxFire.hideProgressHud();
+    // await GetxFire.hideProgressHud();
 
     Get.snackbar(
       title ?? "Success",
       message,
       backgroundColor: Colors.green[400],
       snackPosition: SnackPosition.TOP,
-      margin: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
       borderRadius: 5,
-      icon: Icon(FontAwesomeIcons.checkCircle, color: Colors.white),
+      icon: const Icon(FontAwesomeIcons.checkCircle, color: Colors.white),
       colorText: Colors.white,
-      animationDuration: Duration(milliseconds: 1200),
+      animationDuration: const Duration(milliseconds: 1200),
       duration: duration,
     );
   }
 
   Future<void> messageError(String message,
       {String? title, Duration? duration}) async {
+    debugPrint("[ERROR] : ${message.toString()}");
     await GetxFire.hideProgressHud();
-    print("[ERROR] : ${message.toString()}");
 
     Get.snackbar(
       title ?? "Error",
       message,
       backgroundColor: Colors.red[400],
       snackPosition: SnackPosition.TOP,
-      margin: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
       borderRadius: 5,
-      icon: Icon(FontAwesomeIcons.exclamationCircle, color: Colors.white),
+      icon: const Icon(FontAwesomeIcons.exclamationCircle, color: Colors.white),
       colorText: Colors.white,
-      animationDuration: Duration(milliseconds: 1200),
+      animationDuration: const Duration(milliseconds: 1200),
       duration: duration,
     );
   }
@@ -55,7 +55,7 @@ class OpenDialog {
       barrierDismissible: true,
       animationType: animationType,
       curve: Curves.fastOutSlowIn,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       builder: (_) => InfoDialog(
         title: title,
         content: content,
@@ -82,13 +82,13 @@ class OpenDialog {
     Widget? customWidget,
     bool isBackAfterYes = true,
   }) async {
-    await GetxFire.hideProgressHud();
+    // await GetxFire.progressHud.hide();
     return await showAnimatedDialog(
       context: Get.context!,
       barrierDismissible: true,
       animationType: animationType,
       curve: Curves.fastOutSlowIn,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       builder: (_) => ConfirmDialog(
         title: title,
         content: content,
@@ -121,7 +121,7 @@ class OpenDialog {
       barrierDismissible: true,
       animationType: animationType,
       curve: Curves.fastOutSlowIn,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       builder: (context) {
         final ImagePicker _picker = ImagePicker();
         return ConfirmDialog(
@@ -132,8 +132,8 @@ class OpenDialog {
           colorLeftButton:
               Get.isDarkMode ? null : Colors.blue[600]?.withOpacity(0.9),
           onLeftPressed: () async {
-            PickedFile? pickedFile =
-                await _picker.getImage(source: ImageSource.camera);
+            XFile? pickedFile =
+                await _picker.pickImage(source: ImageSource.camera);
             File? file = pickedFile == null
                 ? null
                 : await imageCropper(pickedFile.path,
@@ -144,8 +144,8 @@ class OpenDialog {
           labelRightButton: "Gallery",
           colorRightButton: Get.isDarkMode ? null : Colors.yellow[700],
           onRightPressed: () async {
-            PickedFile? pickedFile =
-                await _picker.getImage(source: ImageSource.gallery);
+            XFile? pickedFile =
+                await _picker.pickImage(source: ImageSource.gallery);
             File? file = pickedFile == null
                 ? null
                 : await imageCropper(pickedFile.path,
@@ -190,7 +190,7 @@ class OpenDialog {
           activeControlsWidgetColor: Get.context?.theme.primaryColor,
           initAspectRatio: CropAspectRatioPreset.original,
           lockAspectRatio: false),
-      iosUiSettings: IOSUiSettings(
+      iosUiSettings: const IOSUiSettings(
         title: 'Cropper',
       ),
     );

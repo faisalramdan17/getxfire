@@ -51,7 +51,7 @@ class InfoDialog extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Text(
                         title!,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
@@ -64,7 +64,7 @@ class InfoDialog extends StatelessWidget {
                           vertical: 15.0, horizontal: 8),
                       child: Text(
                         content!,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 17,
                         ),
                       ),
@@ -77,15 +77,16 @@ class InfoDialog extends StatelessWidget {
                       child: customWidget,
                     ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12),
                 child: InkWell(
                   onTap: onPressed,
                   child: Container(
                     height: 45,
                     color: colorButton,
-                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(15),
                       ),
                       border: Border.all(

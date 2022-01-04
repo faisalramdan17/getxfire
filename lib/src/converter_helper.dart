@@ -1,25 +1,25 @@
 part of '../getxfire.dart';
 
 class ConverterHelper {
-   Color hexToColor(String? code) {
+  Color hexToColor(String? code) {
     return code == null
         ? Colors.black54
         : Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
   }
 
-   String colorToHex(Color color) {
+  String colorToHex(Color color) {
     return '#${color.value.toRadixString(16).substring(2)}'.toUpperCase();
   }
 
-   String numberFormat(int number) {
-    final formatter = new NumberFormat("#,###");
+  String numberFormat(int number) {
+    final formatter = NumberFormat("#,###");
     return formatter.format(number);
   }
 
-   String? stringFormatYmd(String? date) {
-    if (date == null)
+  String? stringFormatYmd(String? date) {
+    if (date == null) {
       return null;
-    else {
+    } else {
       var data = date.split("-");
 
       if (data.length < 3) data = date.split("/");
@@ -32,10 +32,10 @@ class ConverterHelper {
     }
   }
 
-   DateTime? dateFormatYmd(String? dateInput) {
-    if (dateInput == null)
+  DateTime? dateFormatYmd(String? dateInput) {
+    if (dateInput == null) {
       return null;
-    else {
+    } else {
       try {
         var date = dateInput.split(" ").first;
         var data = date.split("-");
@@ -56,25 +56,25 @@ class ConverterHelper {
     }
   }
 
-   String? stringFormatDmy(DateTime? date, [String? stringLocale]) {
+  String? stringFormatDmy(DateTime? date, [String? stringLocale]) {
     return date == null
         ? null
         : DateFormat("dd-MM-yyyy", stringLocale).format(date);
   }
 
-   String? stringFormatDmyHhMmA(DateTime? date, [String? stringLocale]) {
+  String? stringFormatDmyHhMmA(DateTime? date, [String? stringLocale]) {
     return date == null
         ? null
         : DateFormat("dd-MM-yyyy, hh:mm a", stringLocale).format(date);
   }
 
-   String? stringFormatDmyHeader(DateTime? date, [String? stringLocale]) {
+  String? stringFormatDmyHeader(DateTime? date, [String? stringLocale]) {
     return date == null
         ? null
         : DateFormat("EEEE, dd MMMM yyyy", stringLocale).format(date);
   }
 
-   DateTime? dateFormatYmdOnly(DateTime? date) {
+  DateTime? dateFormatYmdOnly(DateTime? date) {
     return date == null
         ? null
         : DateTime.parse(DateFormat("yyyy-MM-dd").format(date));
