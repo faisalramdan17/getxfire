@@ -55,6 +55,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+false_secrets:
+ - /admin-vuejs/config.ts
+ - /example/android/app/google-services.json
+ - /example/ios/Runner/GoogleService-Info.plist
+ - /example/web/index.html
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
