@@ -24,13 +24,13 @@ class Helper {
     );
   }
 
-  // String daftarWA({
-  //   required String title,
-  //   required String noWA, //
-  //   required UserModel user,
-  // }) {
-  //   return "https://api.whatsapp.com/send?phone=$noWA&text=Hi%20minCast%20%F0%9F%98%8A%0A%0APerkenalkan%2C%0ANama%20%3A%20${user.profile?.fullName ?? ""}%0AEmail%20%3A%20${user.profile?.email ?? ""}%0AUmur%20%3A%20${""}%0ATB%2FBB%20%3A%20${user.talent?.bodyHeight ?? ""}%2F${user.talent?.bodyWeight ?? ""}%0ADomisili%20%3A%20${user.profile?.address?.city ?? ""}%0AInstagram%20%3A%20${user.profile?.instagram ?? ""}%0APengalaman%20%3A%20${user.talent?.lastExperience ?? ""}%0A%0ASaya%20dapat%20info%20dari%20iCast%20App%20dan%20mau%20ikut%20casting%20*$title*";
-  // }
+  String chatWA({
+    required String title,
+    required String noWA,
+    required String content,
+  }) {
+    return "https://api.whatsapp.com/send?phone=$noWA&text=$content";
+  }
 
   String? getPhoneCode(String? text) {
     if (text?.contains("(") ?? false) {

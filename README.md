@@ -28,6 +28,17 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 </p> 
 <br/>
 
+# Contact Me & Social Media
+- <a href="https://www.buymeacoffee.com/faisalramdan17" target="_blank"><img src="https://i.imgur.com/aV6DDA7.png" alt="Buy Me A Coffee" style="height: 100px !important;width: 274px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" > </a>
+- Buy Me a Coffee : https://www.buymeacoffee.com/faisalramdan17
+- Subscribe on Youtube : https://www.youtube.com/c/CodingYourLife?sub_confirmation=1
+- Contact us on Telegram : https://t.me/faisalramdan17
+- Website: https://codingyourlife.id
+- GitHub: https://github.com/faisalramdan17
+- LinkedIn: https://www.linkedin.com/in/faisalramdan17
+- Facebook : https://www.facebook.com/codingyourlife.id
+- Instagram: https://instagram.com/faisalramdan17 & https://instagram.com/codingyourlife.id
+
 # Features
 
 - User
@@ -365,15 +376,3 @@ GetX has 3 basic principles. This means that these are the priority for all reso
 GetX is not bloated. It has a multitude of features that allow you to start programming without worrying about anything, but each of these features are in separate containers and are only started after use. If you only use State Management, only State Management will be compiled. If you only use routes, nothing from the state management will be compiled.
 
 GetX has a huge ecosystem, a large community, a large number of collaborators, and will be maintained as long as the Flutter exists. GetX too is capable of running with the same code on Android, iOS, Web, Mac, Linux, Windows, and on your server.
-
-# Social Media
-- <a href="https://www.buymeacoffee.com/faisalramdan17" target="_blank"><img src="https://i.imgur.com/aV6DDA7.png" alt="Buy Me A Coffee" style="height: 100px !important;width: 274px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" > </a>
-- Buy Me a Coffee : https://www.buymeacoffee.com/faisalramdan17
-- Subscribe on Youtube : https://www.youtube.com/c/CodingYourLife?sub_confirmation=1
-- Contact us on Telegram : https://t.me/faisalramdan17
-- Website: https://codingyourlife.id
-- GitHub: https://github.com/faisalramdan17
-- Facebook : https://www.facebook.com/codingyourlife.id
-- Instagram: https://instagram.com/faisalramdan17 & https://instagram.com/codingyourlife.id
-- LinkedIn: https://www.linkedin.com/in/faisalramdan17
-
