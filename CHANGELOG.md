@@ -1,6 +1,11 @@
+## 0.3.3 - Updates (10 Jan 2022)
+
+- Upgraded dependencies Packages
+- Fixed bugs.
+
 ## 0.3.2 - Updates (4 Jan 2022)
 
-- Fixed buggs.
+- Fixed bugs.
 - UI Updeted.
 
 ## 0.3.1 - Updates (5 September 2021)
