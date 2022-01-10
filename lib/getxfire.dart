@@ -1,27 +1,32 @@
 library getxfire;
 
+// Import all flutter.dev packages
+import 'dart:io';
 import 'dart:async';
+import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+// Import all firebase packages
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/services.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
-import 'dart:io';
+// Import the packages
 import 'package:get/get.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
 
+// Export all packages
 export 'package:get/get.dart';
 export 'package:image_cropper/image_cropper.dart';
 export 'package:firebase_core/firebase_core.dart';
@@ -52,6 +57,7 @@ export 'package:flutter_spinkit/flutter_spinkit.dart';
 // import 'package:location/location.dart';
 // import 'package:geoflutterfire/geoflutterfire.dart';
 
+// Part of src paths
 part 'src/auth.dart';
 part 'src/file_model.dart';
 part 'src/firestore_service.dart';
@@ -84,6 +90,10 @@ class GetxFire {
   ///
   /// Returns an instance using the default [FirestoreService].
   static FirestoreService get firestore => FirestoreService();
+
+  ///
+  /// Returns an instance using the default [FirestoreService].
+  static FirebaseFirestore get firestoreInstance => FirebaseFirestore.instance;
 
   ///
   /// Returns an instance using the default [StorageService].
@@ -183,7 +193,7 @@ class GetxFire {
     return Firebase.initializeApp(name: name, options: options)
         .then((firebaseApp) {
       FirebaseFirestore.instance.settings =
-          Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
+          const Settings(cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED);
 
       // FirebaseFirestore.instance.useFirestoreEmulator("local", 8080);
 
@@ -197,7 +207,7 @@ class GetxFire {
 
       // /// Initialize or Re-initialize based on the setting's update.
       // settingsChange.listen((settings) {
-      //   // print('settingsChange.listen() on GetxFire::init() $settings');
+      //   // debugPrint('settingsChange.listen() on GetxFire::init() $settings');
 
       //   // Initalize Algolia
       //   String? algoliaAppId = appSetting(ALGOLIA_APP_ID);
@@ -312,8 +322,10 @@ class GetxFire {
 
   /// Logs out from Firebase Auth and All Social Login.
   static Future<void> signOut({bool isSocialLogout = true}) async {
-    if (isSocialLogout) {
-      if (GoogleSignIn().currentUser != null) await GoogleSignIn().signOut();
+    // if (isSocialLogout) {
+    // }
+    if (await GoogleSignIn().isSignedIn()) {
+      await GoogleSignIn().signOut();
     }
     return await FirebaseAuth.instance.signOut();
   }
