@@ -29,8 +29,6 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 <br/>
 
 # Contact Me & Social Media
-- <a href="https://www.buymeacoffee.com/faisalramdan17" target="_blank"><img src="https://i.imgur.com/aV6DDA7.png" alt="Buy Me A Coffee" style="height: 100px !important;width: 274px !important; box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" > </a>
-- Buy Me a Coffee : https://www.buymeacoffee.com/faisalramdan17
 - Subscribe on Youtube : https://www.youtube.com/c/CodingYourLife?sub_confirmation=1
 - Contact us on Telegram : https://t.me/faisalramdan17
 - Website: https://codingyourlife.id
